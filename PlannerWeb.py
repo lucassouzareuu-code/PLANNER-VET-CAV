@@ -717,8 +717,8 @@ def check_conflict(course_to_add: Course, registered_courses: List[Course]) -> O
 # TOKENS DE DESIGN —, uma cor-assinatura por fase
 # =========================================================================
 
-PAGE_BG = "#1A835BEA"
-PANEL_BG = "#FDFF87BB"
+PAGE_BG = "#25CC8CC1"
+PANEL_BG = "#FEFFB0BA"
 HEADER_GRADIENT = "linear-gradient(135deg, #1B1F3B 0%, #2E3566 100%)"
 TIME_COL_GRADIENT = "linear-gradient(135deg, #EDEFF7 0%, #E3E6F3 100%)"
 EMPTY_CELL_BG = "#B6F8DD"
