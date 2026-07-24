@@ -3,8 +3,6 @@ from typing import List, Dict, Optional
 
 # =========================================================================
 # LÓGICA (idêntica ao original: constantes, get_slot_time_str, Course, catálogo)
-# Única adição: cada disciplina agora carrega um atributo .phase (fase do curso),
-# usado para o novo filtro por fase e para a nova paleta de cores da agenda.]
 # =========================================================================
 
 DAYS = ["SEGUNDA", "TERÇA", "QUARTA", "QUINTA", "SEXTA", "SÁBADO"]
@@ -18,10 +16,10 @@ def get_slot_time_str(slot_idx: int) -> str:
     times = [
         "08:00 - 08:50", "08:50 - 09:40", "09:50 - 10:40", "10:40 - 11:30", "11:30 - 12:20",
         "13:10 - 14:00", "14:00 - 14:50", "14:50 - 15:40", "16:00 - 16:50", "16:50 - 17:40",
-        "17:40 - 18:30", "18:30 - 19:20", "19:20 - 20:10", "20:10 - 21:00", "21:00 - 21:50", "21:50 - 22:40"
+        "17:40 - 18:30", "18:30 - 19:20", "19:20 - 20:10", "20:10 - 21:00", "21:00 - 21:50", "21:50 - 22:0"
     ]
     if slot_idx < len(times):
-        return times[slot_idx]
+        return times[slot_idx]  
     return f"Slot {slot_idx}"
 
 
@@ -89,16 +87,6 @@ def build_initial_catalog() -> List[Course]:
         36, {"QUINTA": [10, 11], "SEXTA": [11]})
     add("2ª Fase", "ANA2-D", "Anatomia II (Turma D)",
         36, {"SÁBADO": [0, 1], "SEXTA": [10, 11]})
-    add("2ª Fase", "PARA1-TEO",
-        "Parasitologia I (Teórica)", 72, {"SEGUNDA": [2, 3]})
-    add("2ª Fase", "PARA1-A", "Parasitologia I (Turma A)",
-        36, {"SEGUNDA": [0, 1]})
-    add("2ª Fase", "PARA1-B",
-        "Parasitologia I (Turma B)", 36, {"QUINTA": [11]})
-    add("2ª Fase", "PARA1-C", "Parasitologia I (Turma C)",
-        36, {"QUINTA": [2, 3]})
-    add("2ª Fase", "PARA1-D",
-        "Parasitologia I (Turma D)", 36, {"SEXTA": [6, 7]})
     add("2ª Fase", "HIST2-TEO", "Histologia e Embriologia Vet. (Teórica)",
         72, {"SEGUNDA": [2, 3], "QUINTA": [0]})
     add("2ª Fase", "HIST2-A", "Histologia e Embriologia (Turma A)",
@@ -118,22 +106,32 @@ def build_initial_catalog() -> List[Course]:
         36, {"SEGUNDA": [6, 7]})
     add("2ª Fase", "BIOQM-B", "Bioquímica Metabólica (Turma B)",
         36, {"TERÇA": [6, 7, 8]})
-    add("2ª Fase", "FISI1-T", "Fisiologia I (Teórica)",
-        72, {"QUINTA": [5, 6, 7]})
-    add("2ª Fase", "FISI1-A", "Fisiologia I (Turma A)",
-        36, {"SEGUNDA": [8, 9]})
-    add("2ª Fase", "FISI1-B", "Fisiologia I (Turma B)",
-        36, {"SEGUNDA": [10, 11]})
-    add("2ª Fase", "FISI1-C", "Fisiologia I (Turma C)",
-        36, {"QUINTA": [10, 11]})
-    add("2ª Fase", "FISI1-D", "Fisiologia I (Turma D)",
-        36, {"TERÇA": [10, 11]})
-
+    
     # 3ª FASE
     add("3ª Fase", "IMUNO-T", "Imunologia (Teórica)",
         54, {"SEGUNDA": [0, 1]})
     add("3ª Fase", "IMUNO-A", "Imunologia (Turma A)", 36, {"SEGUNDA": [11]})
     add("3ª Fase", "IMUNO-B", "Imunologia (Turma B)", 36, {"SEGUNDA": [10]})
+    add("3ª Fase", "PARA1-TEO",
+            "Parasitologia I (Teórica)", 72, {"SEGUNDA": [2, 3]})
+    add("3ª Fase", "PARA1-A", "Parasitologia I (Turma A)",
+            36, {"SEGUNDA": [0, 1]})
+    add("3ª Fase", "PARA1-B",
+            "Parasitologia I (Turma B)", 36, {"QUINTA": [11]})
+    add("3ª Fase", "PARA1-C", "Parasitologia I (Turma C)",
+            36, {"QUINTA": [2, 3]})
+    add("3ª Fase", "PARA1-D",
+            "Parasitologia I (Turma D)", 36, {"SEXTA": [6, 7]})
+    add("3ª Fase", "FISI1-T", "Fisiologia I (Teórica)",
+            72, {"QUINTA": [5, 6, 7]})
+    add("3ª Fase", "FISI1-A", "Fisiologia I (Turma A)",
+            36, {"SEGUNDA": [8, 9]})
+    add("3ª Fase", "FISI1-B", "Fisiologia I (Turma B)",
+            36, {"SEGUNDA": [10, 11]})
+    add("3ª Fase", "FISI1-C", "Fisiologia I (Turma C)",
+            36, {"QUINTA": [10, 11]})
+    add("3ª Fase", "FISI1-D", "Fisiologia I (Turma D)",
+            36, {"TERÇA": [10, 11]})
     add("3ª Fase", "MICRO-T", "Microbiologia Geral (Teórica)",
         72, {"SEGUNDA": [2, 3]})
     add("3ª Fase", "MICRO-A", "Microbiologia Geral (Turma A)",
@@ -387,6 +385,12 @@ def build_initial_catalog() -> List[Course]:
         36, {"SEGUNDA": [6, 7]})
     add("9ª Fase", "OBSTE-D", "Obstetrícia Veterinária (Turma D)",
         36, {"SEGUNDA": [8, 9]})
+    add("9ª Fase", "FRIA272-T", "Fisiopatologia da Reprodução II (Teórica)",
+        72, {"QUINTA": [11, 12]})
+    add("9ª Fase", "FRIA272-A", "Fisiopatologia da Reprodução II (Turma A)",
+            72, {"SEXTA": [0, 1]})
+    add("9ª Fase", "FRIA272-B", "Fisiopatologia da Reprodução II (Turma B)",
+            72, {"SEXTA": [2, 3]})  
     add("9ª Fase", "INSP2-T",
         "Inspeção e Tech. Prod. Origem Anim. II", 72, {"QUARTA": [0, 1]})
     add("9ª Fase", "INSP2-A", "Inspeção e Tech. Origem Anim. II (Turma A)",
