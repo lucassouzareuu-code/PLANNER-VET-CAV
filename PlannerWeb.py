@@ -631,7 +631,6 @@ def phase_gradient(phase: str) -> str:
 
 st.set_page_config(
     page_title="Simulador de Matrícula CAV - UDESC",
-    page_icon="🐾",
     layout="wide"
 )
 
@@ -646,14 +645,14 @@ if "available_courses" not in st.session_state:
 if "registered_courses" not in st.session_state:
     st.session_state.registered_courses = []
 
-st.title("🐾 Simulador de Matrícula UDESC-CAV")
+st.title("Simulador de Matrícula UDESC-CAV")
 st.caption("Baseado na Grade Curricular VET122 - 2012/2")
 
 col_left, col_right = st.columns([1, 2], gap="large")
 
 # ---------------- Painel esquerdo ----------------
 with col_left:
-    st.subheader("🔍 Buscar disciplinas")
+    st.subheader("Buscar disciplinas")
 
     phase_choice = st.selectbox("Fase", ["Todas as Fases"] + PHASES)
     
@@ -682,7 +681,7 @@ with col_left:
                 available.append(c)
         filtered_courses = available
 
-    st.subheader(f"📚 Disciplinas ({len(filtered_courses)})")
+    st.subheader(f"Disciplinas ({len(filtered_courses)})")
     options = [str(c) for c in filtered_courses]
     selected_label = st.selectbox("Catálogo", options, label_visibility="collapsed") if options else None
 
@@ -725,12 +724,12 @@ with col_left:
         else:
             conflict_msg = check_conflict(selected_course, st.session_state.registered_courses)
             if conflict_msg:
-                st.warning(f"⚠️ {conflict_msg}")
+                st.warning(f"{conflict_msg}")
             else:
                 st.session_state.registered_courses.append(selected_course)
                 if selected_course.theory:
                     st.session_state.registered_courses.append(selected_course.theory)
-                st.success(f"✅ '{selected_course.name}' adicionada com sucesso!")
+                st.success(f"'{selected_course.name}' adicionada com sucesso!")
                 st.rerun()
 
     # Lista de disciplinas selecionadas
@@ -739,7 +738,7 @@ with col_left:
         if c.group not in grouped_groups:
             grouped_groups.append(c.group)
 
-    st.subheader(f"📋 Matérias Selecionadas ({len(grouped_groups)})")
+    st.subheader(f"Matérias Selecionadas ({len(grouped_groups)})")
     total_ch_geral = 0
     total_creditos_geral = 0
     
@@ -769,7 +768,7 @@ with col_left:
 
 # ---------------- Painel direito: agenda ----------------
 with col_right:
-    st.subheader("📅 Organizador Semanal de Horários")
+    st.subheader("Organizador Semanal de Horários")
 
     grid: Dict[tuple, Course] = {}
     for c in st.session_state.registered_courses:
