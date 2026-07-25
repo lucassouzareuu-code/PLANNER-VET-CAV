@@ -103,7 +103,6 @@ def link_theory_to_practicals(catalog: List[Course]) -> None:
                 c.theory = theory_by_group[c.group]
 
 def build_initial_catalog() -> List[Course]:
-    """Catálogo completo baseado na Grade Curricular VET122 - 2012/2"""
     catalog: List[Course] = []
 
     def add(phase, code, name, total_ch, schedule, creditos=None, tipo="Obrigatória"):
@@ -646,7 +645,6 @@ if "registered_courses" not in st.session_state:
     st.session_state.registered_courses = []
 
 st.title("Simulador de Matrícula UDESC-CAV")
-st.caption("Baseado na Grade Curricular VET122 - 2012/2")
 
 col_left, col_right = st.columns([1, 2], gap="large")
 
