@@ -11,17 +11,28 @@ TOTAL_SLOTS = 16
 PHASES = ["1ª Fase", "2ª Fase", "3ª Fase", "4ª Fase", "5ª Fase",
           "6ª Fase", "7ª Fase", "8ª Fase", "9ª Fase", "Eletivas"]
 
-
 def get_slot_time_str(slot_idx: int) -> str:
     times = [
-        "07:10 - 08:00", "08:00 - 08:50", "08:50 - 09:40", "09:50 - 10:40", "10:40 - 11:30", "11:30 - 12:20",
-        "13:10 - 14:00", "14:00 - 14:50", "14:50 - 15:40", "16:00 - 16:50", "16:50 - 17:40",
-        "17:40 - 18:30", "18:30 - 19:20", "19:20 - 20:10", "20:10 - 21:00", "21:00 - 21:50"
+        "07:10 - 08:00", # Slot 0
+        "08:00 - 08:50", # Slot 1
+        "08:50 - 09:40", # Slot 2
+        "09:50 - 10:40", # Slot 3
+        "10:40 - 11:30", # Slot 4
+        "11:30 - 12:20", # Slot 5
+        "13:10 - 14:00", # Slot 6
+        "14:00 - 14:50", # Slot 7
+        "14:50 - 15:40", # Slot 8
+        "16:00 - 16:50", # Slot 9
+        "16:50 - 17:40", # Slot 10
+        "17:40 - 18:30", # Slot 11
+        "18:30 - 19:20", # Slot 12
+        "19:20 - 20:10", # Slot 13
+        "20:10 - 21:00", # Slot 14
+        "21:00 - 21:50"  # Slot 15
     ]
     if slot_idx < len(times):
         return times[slot_idx]  
     return f"Slot {slot_idx}"
-
 
 class Course:
     def __init__(self, code: str, name: str, credits: int, schedule: Dict[str, List[int]], phase: str = ""):
@@ -53,303 +64,317 @@ class Course:
         label += ")"
         return label
 
-
 def build_initial_catalog() -> List[Course]:
-    """Catálogo completo de Medicina Veterinária UDESC CAV (Atualizado 2026/2 conforme cronograma oficial)"""
+    """Catálogo completo de Medicina Veterinária UDESC CAV - HORÁRIOS 2026/2 (CORRIGIDO)"""
     catalog: List[Course] = []
 
     def add(phase, code, name, credits, schedule):
         catalog.append(Course(code, name, credits, schedule, phase=phase))
 
-    # 1ª FASE
-    add("1ª Fase", "ANA1-TEO", "Anatomia I (Teórica)", 72, {"SEGUNDA": [1, 2], "TERÇA": [1, 2]})
-    add("1ª Fase", "ANA1-A", "Anatomia I (Turma A)", 36, {"TERÇA": [9], "QUARTA": [3, 4]})
-    add("1ª Fase", "ANA1-B", "Anatomia I (Turma B)", 36, {"TERÇA": [10], "QUINTA": [1, 2]})
+    # =========================================================================
+    # 1ª FASE - 2026/2 (Página 1)
+    # =========================================================================
+    add("1ª Fase", "ANA1-T", "Anatomia I (Teórica)", 72, {"SEGUNDA": [1, 2], "TERÇA": [1, 2]})
+    add("1ª Fase", "ANA1-A", "Anatomia I (Turma A)", 36, {"QUARTA": [3, 4], "TERÇA": [9]})
+    add("1ª Fase", "ANA1-B", "Anatomia I (Turma B)", 36, {"TERÇA": [10]})
     add("1ª Fase", "ANA1-C", "Anatomia I (Turma C)", 36, {"TERÇA": [11], "SEXTA": [1, 2]})
-    add("1ª Fase", "ANA1-D", "Anatomia I (Turma D)", 36, {"QUARTA": [1], "SEXTA": [3, 4]})
-
-    add("1ª Fase", "HISTG-T", "Histologia Geral (Teórica)", 72, {"TERÇA": [3, 4]})
+    add("1ª Fase", "ANA1-D", "Anatomia I (Turma D)", 36, {"QUARTA": [1, 2], "SEXTA": [3, 4]})
+    
+    add("1ª Fase", "HISTG-T", "Histologia Geral (Teórica)", 72, {"TERÇA": [3, 4], "QUINTA": [1, 2]})
     add("1ª Fase", "HISTG-A", "Histologia Geral (Turma A)", 36, {"QUINTA": [1, 2]})
     add("1ª Fase", "HISTG-B", "Histologia Geral (Turma B)", 36, {"QUARTA": [3, 4]})
-    add("1ª Fase", "HISTG-C", "Histologia Geral (Turma C)", 36, {"QUARTA": [7, 8]})
+    add("1ª Fase", "HISTG-C", "Histologia Geral (Turma C)", 36, {"QUINTA": [7, 8]})
     add("1ª Fase", "HISTG-D", "Histologia Geral (Turma D)", 36, {"QUARTA": [9, 10]})
-
-    add("1ª Fase", "SOAMV", "Sociologia Aplicada", 36, {"SEGUNDA": [3, 4]})
-    add("1ª Fase", "ECOLO-1", "Ecologia e Desenvolvimento", 36, {"QUINTA": [3, 4]})
     
-    add("1ª Fase", "BIOQB-T", "Bioquímica de Biomoléculas (Teórica)", 54, {"TERÇA": [7, 8]})
-    add("1ª Fase", "BIOQB-A", "Bioquímica de Biomoléculas (Turma A)", 54, {"QUARTA": [6, 7]})
-    add("1ª Fase", "BIOQB-B", "Bioquímica de Biomoléculas (Turma B)", 54, {"QUARTA": [8, 9]})
-    add("1ª Fase", "BIOQB-C", "Bioquímica de Biomoléculas (Turma C)", 54, {"QUARTA": [10, 11]})
-
-    add("1ª Fase", "ESTCA", "Estatística e Experimentação", 54, {"SEGUNDA": [7, 8, 9]})
+    add("1ª Fase", "INTRO", "Introdução à Medicina Veterinária", 36, {"QUARTA": [2]})
+    add("1ª Fase", "SOAMV", "Sociologia Aplicada", 36, {"SEGUNDA": [3, 4]})
+    add("1ª Fase", "ECOLO", "Ecologia e Desenvolvimento", 36, {"QUINTA": [3, 4]})
+    add("1ª Fase", "ESTAT", "Estatística e Experimentação", 54, {"SEGUNDA": [7, 8, 9]})
+    add("1ª Fase", "BIOQB-T", "Bioquímica de Biomoléculas (Teórica)", 54, {"TERÇA": [7, 8], "QUARTA": [7]})
+    add("1ª Fase", "BIOQB-A", "Bioquímica de Biomoléculas (Turma A)", 54, {"QUARTA": [7]})
+    add("1ª Fase", "BIOQB-B", "Bioquímica de Biomoléculas (Turma B)", 54, {"SEXTA": [8]})
+    add("1ª Fase", "BIOQB-C", "Bioquímica de Biomoléculas (Turma C)", 54, {"QUARTA": [11]})
     add("1ª Fase", "EXTEN", "Extensão, Comunicação e Sociedade", 36, {"SEXTA": [7, 8]})
     add("1ª Fase", "COMPOR", "Comportamento e Bem-Estar Animal", 36, {"QUINTA": [9, 10]})
 
-    # 2ª FASE
-    add("2ª Fase", "ANA2-TEO", "Anatomia II (Teórica)", 72, {"SEGUNDA": [1, 2], "QUARTA": [3, 4]})
-    add("2ª Fase", "ANA2-A", "Anatomia II (Turma A)", 36, {"TERÇA": [7, 8], "QUINTA": [9, 10]})
-    add("2ª Fase", "ANA2-B", "Anatomia II (Turma B)", 36, {"TERÇA": [9, 10]})
-    add("2ª Fase", "ANA2-C", "Anatomia II (Turma C)", 36, {"TERÇA": [11, 12], "QUINTA": [12]})
-    add("2ª Fase", "ANA2-D", "Anatomia II (Turma D)", 36, {"QUARTA": [1, 2], "QUINTA": [11]})
+    # =========================================================================
+    # 2ª FASE - 2026/2 (Página 2)
+    # =========================================================================
+    add("2ª Fase", "ANA2-T", "Anatomia II (Teórica)", 72, {"SEGUNDA": [1, 2], "QUARTA": [3, 4]})
+    add("2ª Fase", "ANA2-A", "Anatomia II (Turma A)", 36, {"QUINTA": [7, 8], "SEXTA": [9]})
+    add("2ª Fase", "ANA2-B", "Anatomia II (Turma B)", 36, {"QUARTA": [9, 10], "SEXTA": [10]})
+    add("2ª Fase", "ANA2-C", "Anatomia II (Turma C)", 36, {"SEGUNDA": [11, 12], "QUARTA": [12]})
+    add("2ª Fase", "ANA2-D", "Anatomia II (Turma D)", 36, {"QUARTA": [1, 2], "QUARTA": [11]})
+    
+    add("2ª Fase", "HIST2-T", "Histologia e Embriologia (Teórica)", 72, {"SEGUNDA": [3, 4], "SEXTA": [1]})
+    add("2ª Fase", "HIST2-A", "Histologia e Embriologia (Turma A)", 36, {"TERÇA": [7, 8]})
+    add("2ª Fase", "HIST2-B", "Histologia e Embriologia (Turma B)", 36, {"TERÇA": [9, 10]})
+    add("2ª Fase", "HIST2-C", "Histologia e Embriologia (Turma C)", 36, {"QUARTA": [7, 8]})
+    add("2ª Fase", "HIST2-D", "Histologia e Embriologia (Turma D)", 36, {"SEXTA": [7, 8]})
 
-    add("2ª Fase", "HIST2-TEO", "Histologia e Embriologia Vet. (Teórica)", 72, {"SEGUNDA": [3, 4], "QUINTA": [1]})
-    add("2ª Fase", "HIST2-A", "Histologia e Embriologia (Turma A)", 36, {"SEGUNDA": [7, 8]})
-    add("2ª Fase", "HIST2-B", "Histologia e Embriologia (Turma B)", 36, {"SEGUNDA": [9, 10]})
-    add("2ª Fase", "HIST2-C", "Histologia e Embriologia (Turma C)", 36, {"TERÇA": [7, 8]})
-    add("2ª Fase", "HIST2-D", "Histologia e Embriologia (Turma D)", 36, {"QUINTA": [7, 8]})
-
-    add("2ª Fase", "GENET", "Genética (Teórica)", 54, {"SEXTA": [1, 2]})
-    add("2ª Fase", "GENE-A", "Genética (Turma A)", 36, {"QUINTA": [3, 4]})
-    add("2ª Fase", "GENE-B", "Genética (Turma B)", 36, {"QUINTA": [7, 8]})
-
-    add("2ª Fase", "BIOQM-T", "Bioquímica Metabólica (Teórica)", 54, {"SEXTA": [3, 4]})
+    add("2ª Fase", "GENET-T", "Genética (Teórica)", 54, {"SEXTA": [2]})
+    add("2ª Fase", "GENE-A", "Genética (Turma A)", 36, {"SEXTA": [3, 4]})
+    add("2ª Fase", "GENE-B", "Genética (Turma B)", 36, {"SEXTA": [8]})
+    
+    add("2ª Fase", "BIOQM-T", "Bioquímica Metabólica (Teórica)", 72, {})
     add("2ª Fase", "BIOQM-A", "Bioquímica Metabólica (Turma A)", 36, {"SEGUNDA": [7, 8]})
     add("2ª Fase", "BIOQM-B", "Bioquímica Metabólica (Turma B)", 36, {"SEGUNDA": [9, 10]})
-
-    add("2ª Fase", "PARA1-TEO", "Parasitologia I (Teórica)", 72, {"TERÇA": [3, 4]})
+    
+    add("2ª Fase", "PARA1-T", "Parasitologia I (Teórica)", 72, {"TERÇA": [3, 4]})
     add("2ª Fase", "PARA1-A", "Parasitologia I (Turma A)", 36, {"TERÇA": [1, 2]})
-    add("2ª Fase", "PARA1-B", "Parasitologia I (Turma B)", 36, {"QUARTA": [11, 12]})
+    add("2ª Fase", "PARA1-B", "Parasitologia I (Turma B)", 36, {"TERÇA": [11, 12]})
     add("2ª Fase", "PARA1-C", "Parasitologia I (Turma C)", 36, {"QUINTA": [3, 4]})
     add("2ª Fase", "PARA1-D", "Parasitologia I (Turma D)", 36, {"QUINTA": [7, 8]})
-
-    add("2ª Fase", "FISI1-T", "Fisiologia I (Teórica)", 72, {"QUARTA": [6, 7, 8]})
-    add("2ª Fase", "FISI1-A", "Fisiologia I (Turma A)", 36, {"QUARTA": [1, 2]})
-    add("2ª Fase", "FISI1-B", "Fisiologia I (Turma B)", 36, {"QUARTA": [9, 10]})
+    
+    add("2ª Fase", "FISI1-T", "Fisiologia I (Teórica)", 72, {"SEGUNDA": [6], "SEXTA": [7, 8]})
+    add("2ª Fase", "FISI1-A", "Fisiologia I (Turma A)", 36, {"QUINTA": [1, 2]})
+    add("2ª Fase", "FISI1-B", "Fisiologia I (Turma B)", 36, {"QUINTA": [9, 10]})
     add("2ª Fase", "FISI1-C", "Fisiologia I (Turma C)", 36, {"QUINTA": [3, 4]})
     add("2ª Fase", "FISI1-D", "Fisiologia I (Turma D)", 36, {"QUINTA": [9, 10]})
 
-    # 3ª FASE
-    add("3ª Fase", "SOAMV-3", "Sociologia Aplicada (Fase 3)", 36, {"QUARTA": [9, 10]})
-    add("3ª Fase", "IMUNO-T", "Imunologia (Teórica)", 54, {"SEGUNDA": [1, 2]})
-    add("3ª Fase", "IMUNO-A", "Imunologia (Turma A)", 36, {"SEGUNDA": [11]})
-    add("3ª Fase", "IMUNO-B", "Imunologia (Turma B)", 36, {"SEGUNDA": [12]})
+    # =========================================================================
+    # 3ª FASE - 2026/2 (Página 4 - VET252-03)
+    # =========================================================================
+    add("3ª Fase", "IMUNO-T", "Imunologia Veterinária (Teórica)", 54, {"SEGUNDA": [1, 2]})
+    add("3ª Fase", "IMUNO-A", "Imunologia Veterinária (Turma A)", 36, {"SEGUNDA": [11]})
+    add("3ª Fase", "IMUNO-B", "Imunologia Veterinária (Turma B)", 36, {"SEGUNDA": [12]})
+    
+    add("3ª Fase", "FISI2-T", "Fisiologia II (Teórica)", 72, {"TERÇA": [1, 2]})
+    add("3ª Fase", "FISI2-A", "Fisiologia II (Turma A)", 36, {"SEGUNDA": [7, 8]})
+    add("3ª Fase", "FISI2-B", "Fisiologia II (Turma B)", 36, {"SEGUNDA": [9, 10]})
+    add("3ª Fase", "FISI2-C", "Fisiologia II (Turma C)", 36, {"TERÇA": [3, 4]})
+    add("3ª Fase", "FISI2-D", "Fisiologia II (Turma D)", 36, {"QUARTA": [3, 4]})
+    
+    add("3ª Fase", "PARA2-T", "Parasitologia II (Teórica)", 72, {"QUINTA": [1, 2]})
+    add("3ª Fase", "PARA2-A", "Parasitologia II (Turma A)", 36, {"SEGUNDA": [7, 8]})
+    add("3ª Fase", "PARA2-B", "Parasitologia II (Turma B)", 36, {"SEGUNDA": [9, 10]})
+    add("3ª Fase", "PARA2-C", "Parasitologia II (Turma C)", 36, {"TERÇA": [3, 4]})
+    add("3ª Fase", "PARA2-D", "Parasitologia II (Turma D)", 36, {"QUARTA": [1, 2]})
+    
+    add("3ª Fase", "MICRO-T", "Microbiologia Básica (Teórica)", 72, {"SEGUNDA": [3, 4]})
+    add("3ª Fase", "MICRO-A", "Microbiologia Básica (Turma A)", 36, {"SEGUNDA": [7, 8]})
+    add("3ª Fase", "MICRO-B", "Microbiologia Básica (Turma B)", 36, {"SEGUNDA": [9, 10]})
+    add("3ª Fase", "MICRO-C", "Microbiologia Básica (Turma C)", 36, {"TERÇA": [7, 8]})
+    add("3ª Fase", "MICRO-D", "Microbiologia Básica (Turma D)", 36, {"TERÇA": [9, 10]})
+    
+    add("3ª Fase", "NUTRI", "Nutrição Animal", 54, {"QUARTA": [7, 8, 9, 10, 11, 12]})
+    add("3ª Fase", "FARM1-T", "Farmacologia Geral (Teórica)", 72, {"SEXTA": [1, 2, 3, 4, 7, 8]})
+    add("3ª Fase", "FARM1-A", "Farmacologia Geral (Turma A)", 36, {"QUINTA": [9, 10]})
+    add("3ª Fase", "FARM1-B", "Farmacologia Geral (Turma B)", 36, {"SEXTA": [1, 2]})
+    add("3ª Fase", "FARM1-C", "Farmacologia Geral (Turma C)", 36, {"SEXTA": [3, 4]})
+    
+    add("3ª Fase", "EPIST", "Epistemologia e Metodologia Científica", 36, {"QUARTA": [9, 10]})
+    add("3ª Fase", "MELHO", "Melhoramento Animal", 36, {"QUINTA": [11, 12]})
 
-    add("3ª Fase", "MICRO-T", "Microbiologia Geral (Teórica)", 72, {"SEGUNDA": [3, 4]})
-    add("3ª Fase", "MICRO-A", "Microbiologia Geral (Turma A)", 36, {"SEGUNDA": [7, 8]})
-    add("3ª Fase", "MICRO-B", "Microbiologia Geral (Turma B)", 36, {"SEGUNDA": [9, 10]})
-    add("3ª Fase", "MICRO-C", "Microbiologia Geral (Turma C)", 36, {"TERÇA": [7, 8]})
-    add("3ª Fase", "MICRO-D", "Microbiologia Geral (Turma D)", 36, {"TERÇA": [9, 10]})
-
-    add("3ª Fase", "EPIST-3", "Epistemologia e Metodologia Científica", 36, {"QUARTA": [9, 10]})
-
-    # 4ª FASE
-    add("4ª Fase", "NUTRI-4", "Nutrição Animal", 54, {"QUARTA": [0, 1, 2]})
-    add("4ª Fase", "EPIDE-4", "Epidemiologia", 36, {"QUINTA": [3, 4]})
-    add("4ª Fase", "ECONO-4", "Economia e Administração", 54, {"QUINTA": [7, 8], "SEXTA": [1, 2]})
-
-    add("4ª Fase", "FISIO2-T", "Fisiologia II (Teórica)", 72, {"SEGUNDA": [1, 2]})
-    add("4ª Fase", "FISIO2-A", "Fisiologia II (Turma A)", 36, {"SEGUNDA": [3, 4]})
-    add("4ª Fase", "FISIO2-B", "Fisiologia II (Turma B)", 36, {"TERÇA": [1, 2]})
-    add("4ª Fase", "FISIO2-C", "Fisiologia II (Turma C)", 36, {"TERÇA": [7, 8]})
-    add("4ª Fase", "FISIO2-D", "Fisiologia II (Turma D)", 36, {"TERÇA": [9, 10]})
-
-    add("4ª Fase", "FARM1-T", "Farmacologia Geral (Teórica)", 72, {"SEGUNDA": [7, 8]})
+    # =========================================================================
+    # 4ª FASE - 2026/2 (Página 5 - VET122-04)
+    # =========================================================================
+    add("4ª Fase", "ECONO", "Economia e Administração", 72, {"SEXTA": [1, 2], "QUARTA": [7, 8]})
+    add("4ª Fase", "EPIDE", "Epidemiologia", 36, {"QUINTA": [3, 4]})
+    
     add("4ª Fase", "FARM1-D", "Farmacologia Geral (Turma D)", 36, {"TERÇA": [3, 4]})
-    add("4ª Fase", "FARM1-E", "Farmacologia Geral (Turma E)", 36, {"TERÇA": [9, 10]})
+    add("4ª Fase", "FARM1-E", "Farmacologia Geral (Turma E)", 36, {"TERÇA": [9]})
     add("4ª Fase", "FARM1-F", "Farmacologia Geral (Turma F)", 36, {"QUARTA": [3, 4]})
-
-    add("4ª Fase", "PARAS2-T", "Parasitologia II (Teórica)", 72, {"SEGUNDA": [9, 10]})
-    add("4ª Fase", "PARAS2-E", "Parasitologia II (Turma E)", 36, {"SEGUNDA": [3, 4]})
-    add("4ª Fase", "PARAS2-F", "Parasitologia II (Turma F)", 36, {"QUARTA": [3, 4]})
-    add("4ª Fase", "PARAS2-G", "Parasitologia II (Turma G)", 36, {"QUARTA": [9, 10]})
-    add("4ª Fase", "PARAS2-H", "Parasitologia II (Turma H)", 36, {"QUINTA": [1, 2]})
-
-    add("4ª Fase", "MICRE-T", "Microbiologia Especial (Teórica)", 72, {"SEXTA": [3, 4, 5]})
+    add("4ª Fase", "FARM1-G", "Farmacologia Geral (Turma G)", 36, {})
+    
+    add("4ª Fase", "FISI2-A", "Fisiologia II (Turma A)", 36, {"SEGUNDA": [3, 4]})
+    add("4ª Fase", "FISI2-B", "Fisiologia II (Turma B)", 36, {"TERÇA": [1, 2]})
+    add("4ª Fase", "FISI2-C", "Fisiologia II (Turma C)", 36, {"TERÇA": [7, 8]})
+    add("4ª Fase", "FISI2-D", "Fisiologia II (Turma D)", 36, {"TERÇA": [9]})
+    
+    add("4ª Fase", "PARA2-A", "Parasitologia II (Turma A)", 36, {})
+    add("4ª Fase", "PARA2-B", "Parasitologia II (Turma B)", 36, {})
+    add("4ª Fase", "PARA2-C", "Parasitologia II (Turma C)", 36, {})
+    add("4ª Fase", "PARA2-D", "Parasitologia II (Turma D)", 36, {})
+    add("4ª Fase", "PARA2-E", "Parasitologia II (Turma E)", 36, {"SEGUNDA": [3, 4]})
+    add("4ª Fase", "PARA2-F", "Parasitologia II (Turma F)", 36, {"QUARTA": [3, 4]})
+    add("4ª Fase", "PARA2-G", "Parasitologia II (Turma G)", 36, {"QUARTA": [9]})
+    add("4ª Fase", "PARA2-H", "Parasitologia II (Turma H)", 36, {"QUINTA": [1, 2]})
+    
+    add("4ª Fase", "MICRE-T", "Microbiologia Especial (Teórica)", 90, {"SEXTA": [3, 4], "QUINTA": [5]})
     add("4ª Fase", "MICRE-A", "Microbiologia Especial (Turma A)", 36, {"QUARTA": [3, 4]})
     add("4ª Fase", "MICRE-B", "Microbiologia Especial (Turma B)", 36, {"QUARTA": [7, 8]})
-    add("4ª Fase", "MICRE-C", "Microbiologia Especial (Turma C)", 36, {"QUARTA": [9, 10]})
+    add("4ª Fase", "MICRE-C", "Microbiologia Especial (Turma C)", 36, {"QUARTA": [9]})
+    
+    add("4ª Fase", "NUTRI", "Nutrição Animal", 54, {"QUINTA": [1, 2], "SEGUNDA": [1, 2]})
 
-    # 5ª FASE
-    add("5ª Fase", "FORRA-5", "Forragicultura", 54, {"SEXTA": [0, 1, 2]})
-    add("5ª Fase", "SEMIO-T", "Semiologia (Teórica)", 90, {"SEGUNDA": [2, 3, 4]})
-    add("5ª Fase", "SEMIO-A", "Semiologia (Turma A)", 36, {"TERÇA": [3, 4]})
-    add("5ª Fase", "SEMIO-B", "Semiologia (Turma B)", 36, {"QUARTA": [3, 4]})
-    add("5ª Fase", "SEMIO-C", "Semiologia (Turma C)", 36, {"QUINTA": [3, 4]})
-    add("5ª Fase", "SEMIO-D", "Semiologia (Turma D)", 36, {"SEXTA": [3, 4]})
+    # =========================================================================
+    # 5ª FASE - 2026/2 (Página 6 - Sem grade detalhada, mantida como lista)
+    # =========================================================================
+    add("5ª Fase", "ALIMA", "Alimentos e Alimentação Animal", 90, {})
+    add("5ª Fase", "COEXT", "Comunicação e Extensão Rural", 36, {})
+    add("5ª Fase", "FARMD-T", "Farmacodinâmica (Teórica)", 72, {})
+    add("5ª Fase", "FORRA", "Forragicultura", 54, {})
+    add("5ª Fase", "PACLI-T", "Patologia Clínica Vet. (Teórica)", 72, {})
+    add("5ª Fase", "PATG-T", "Patologia Geral (Teórica)", 90, {})
+    add("5ª Fase", "SEMIO-T", "Semiologia (Teórica)", 90, {})
 
-    add("5ª Fase", "FARMD-T", "Farmacodinâmica (Teórica)", 72, {"TERÇA": [1, 2]})
-    add("5ª Fase", "FARMD-A", "Farmacodinâmica (Turma A)", 36, {"QUINTA": [1, 2]})
-    add("5ª Fase", "FARMD-B", "Farmacodinâmica (Turma B)", 36, {"QUINTA": [3, 4]})
-    add("5ª Fase", "FARMD-C", "Farmacodinâmica (Turma C)", 36, {"SEXTA": [7, 8]})
-
-    add("5ª Fase", "PATCL-T", "Patologia Clínica Vet. (Teórica)", 72, {"TERÇA": [7, 8]})
-    add("5ª Fase", "PATCL-A", "Patologia Clínica Vet. (Turma A)", 36, {"TERÇA": [9, 10]})
-    add("5ª Fase", "PATCL-B", "Patologia Clínica Vet. (Turma B)", 36, {"QUARTA": [1, 2]})
-    add("5ª Fase", "PATCL-C", "Patologia Clínica Vet. (Turma C)", 36, {"QUARTA": [7, 8]})
-    add("5ª Fase", "PATCL-D", "Patologia Clínica Vet. (Turma D)", 36, {"QUINTA": [1, 2]})
-
-    add("5ª Fase", "PATG-T", "Patologia Geral (Teórica)", 90, {"SEGUNDA": [7, 8, 9]})
-    add("5ª Fase", "PATG-A", "Patologia Geral (Turma A)", 36, {"TERÇA": [3, 4]})
-    add("5ª Fase", "PATG-B", "Patologia Geral (Turma B)", 36, {"TERÇA": [9, 10]})
-    add("5ª Fase", "PATG-C", "Patologia Geral (Turma C)", 36, {"QUARTA": [9, 10]})
-
-    add("5ª Fase", "ALIMA-5", "Alimentos e Alimentação Animal", 90, {"QUINTA": [7, 8, 9, 10, 11]})
-    add("5ª Fase", "COEXT-5", "Comunicação e Extensão Rural", 36, {"SEGUNDA": [10, 11]})
-
-    # 6ª FASE
+    # =========================================================================
+    # 6ª FASE - 2026/2 (Página 7 - VET122-06)
+    # =========================================================================
     add("6ª Fase", "SUINO-T", "Suinocultura (Teórica)", 54, {"SEGUNDA": [1, 2]})
-    add("6ª Fase", "SUINO-A", "Suinocultura (Turma A)", 36, {"SEGUNDA": [7]})
+    add("6ª Fase", "SUINO-A", "Suinocultura (Turma A)", 36, {"SEGUNDA": [7, 8]})
     add("6ª Fase", "SUINO-B", "Suinocultura (Turma B)", 36, {"SEGUNDA": [8]})
     add("6ª Fase", "SUINO-C", "Suinocultura (Turma C)", 36, {"SEGUNDA": [9]})
+    
+    add("6ª Fase", "DOIC-T", "Doenças Infecto-Contagiosas (Teórica)", 90, {"TERÇA": [1, 2, 3, 4]})
+    add("6ª Fase", "DOIC-A", "Doenças Infecto-Contagiosas (Turma A)", 36, {"QUARTA": [5], "QUINTA": [10]})
+    add("6ª Fase", "DOIC-B", "Doenças Infecto-Contagiosas (Turma B)", 36, {"QUINTA": [7, 8]})
+    add("6ª Fase", "DOIC-C", "Doenças Infecto-Contagiosas (Turma C)", 36, {"SEXTA": [9]})
+    
+    add("6ª Fase", "DOENP-T", "Doenças Parasitárias (Teórica)", 72, {"QUARTA": [1, 2, 3, 4]})
+    add("6ª Fase", "DOENP-A", "Doenças Parasitárias (Turma A)", 36, {"QUARTA": [7, 8]})
+    add("6ª Fase", "DOENP-B", "Doenças Parasitárias (Turma B)", 36, {"SEXTA": [9, 10]})
+    add("6ª Fase", "DOENP-C", "Doenças Parasitárias (Turma C)", 36, {"SEGUNDA": [11], "SÁBADO": [12]})
+    add("6ª Fase", "DOENP-D", "Doenças Parasitárias (Turma D)", 36, {"QUINTA": [7, 8]})
+    
+    add("6ª Fase", "CLINR-T", "Clínica Médica de Ruminantes (Teórica)", 90, {"QUINTA": [1, 2, 3, 4]})
+    add("6ª Fase", "CLINR-A", "Clínica Médica de Ruminantes (Turma A)", 36, {"QUARTA": [7, 8]})
+    add("6ª Fase", "CLINR-B", "Clínica Médica de Ruminantes (Turma B)", 36, {"SEXTA": [9, 10]})
+    add("6ª Fase", "CLINR-C", "Clínica Médica de Ruminantes (Turma C)", 36, {"SEXTA": [9]})
+    add("6ª Fase", "CLINR-D", "Clínica Médica de Ruminantes (Turma D)", 36, {"QUINTA": [7, 8]})
+    
+    add("6ª Fase", "PATE-T", "Patologia Especial (Teórica)", 90, {"SEXTA": [1, 2, 3, 4]})
+    add("6ª Fase", "PATE-A", "Patologia Especial (Turma A)", 36, {"SEXTA": [9, 10]})
+    add("6ª Fase", "PATE-B", "Patologia Especial (Turma B)", 36, {"QUINTA": [7, 8]})
+    add("6ª Fase", "PATE-C", "Patologia Especial (Turma C)", 36, {"SÁBADO": [10, 11]})
+    
+    add("6ª Fase", "PISCI", "Piscicultura", 36, {"QUARTA": [3, 4, 5]})
+    add("6ª Fase", "TERAP", "Terapêutica", 36, {"SEGUNDA": [3, 4]})
 
-    add("6ª Fase", "INFEC-T", "Doenças Infectocontagiosas (Teórica)", 72, {"TERÇA": [1, 2, 3]})
-    add("6ª Fase", "INFEC-A", "Doenças Infectocontagiosas (Turma A)", 36, {"QUINTA": [4, 5]})
-    add("6ª Fase", "INFEC-B", "Doenças Infectocontagiosas (Turma B)", 36, {"QUINTA": [7, 8]})
-    add("6ª Fase", "INFEC-C", "Doenças Infectocontagiosas (Turma C)", 36, {"QUINTA": [9, 10]})
+    # =========================================================================
+    # 7ª FASE - 2026/2 (Página 8 - VET122-07)
+    # =========================================================================
+    add("7ª Fase", "ANEST-T", "Anestesiologia (Teórica)", 54, {"TERÇA": [1, 2]})
+    add("7ª Fase", "ANEST-A", "Anestesiologia (Turma A)", 36, {"QUARTA": [7]})
+    add("7ª Fase", "ANEST-B", "Anestesiologia (Turma B)", 36, {"QUARTA": [8]})
+    add("7ª Fase", "ANEST-C", "Anestesiologia (Turma C)", 36, {"QUARTA": [7]})
+    add("7ª Fase", "ANEST-D", "Anestesiologia (Turma D)", 36, {"QUARTA": [9]})
 
-    add("6ª Fase", "PARAS2-T6", "Doenças Parasitárias (Teórica)", 72, {"QUARTA": [1, 2]})
-    add("6ª Fase", "PARAS2-A6", "Doenças Parasitárias (Turma A)", 36, {"TERÇA": [7, 8]})
-    add("6ª Fase", "PARAS2-B6", "Doenças Parasitárias (Turma B)", 36, {"TERÇA": [9, 10, 11, 12]})
-    add("6ª Fase", "PARAS2-D6", "Doenças Parasitárias (Turma D)", 36, {"QUARTA": [7, 8]})
+    add("7ª Fase", "TCIR-T", "Técnica Cirúrgica (Teórica)", 90, {"TERÇA": [9, 10]})
+    add("7ª Fase", "TCIR-A", "Técnica Cirúrgica (Turma A)", 36, {"QUARTA": [1, 2]})
+    add("7ª Fase", "TCIR-B", "Técnica Cirúrgica (Turma B)", 36, {"QUARTA": [3, 4]})
+    add("7ª Fase", "TCIR-C", "Técnica Cirúrgica (Turma C)", 36, {"QUINTA": [1, 2]})
+    add("7ª Fase", "TCIR-D", "Técnica Cirúrgica (Turma D)", 36, {"QUINTA": [3, 4]})
 
-    add("6ª Fase", "CLINR-T", "Clínica Médica de Ruminantes (Teórica)", 72, {"QUINTA": [1, 2, 3]})
-    add("6ª Fase", "CLINR-A", "Clínica Médica de Ruminantes (Turma A)", 36, {"SEGUNDA": [7, 8]})
-    add("6ª Fase", "CLINR-B", "Clínica Médica de Ruminantes (Turma B)", 36, {"QUINTA": [9, 10]})
-    add("6ª Fase", "CLINR-C", "Clínica Médica de Ruminantes (Turma C)", 36, {"TERÇA": [9, 10]})
+    add("7ª Fase", "DIAG-T", "Diagnóstico por Imagem (Teórica)", 54, {"QUINTA": [5, 10]})
+    add("7ª Fase", "DIAG-A", "Diagnóstico por Imagem (Turma A)", 36, {"QUINTA": [1, 2]})
+    add("7ª Fase", "DIAG-B", "Diagnóstico por Imagem (Turma B)", 36, {"QUINTA": [3, 4]})
+    add("7ª Fase", "DIAG-C", "Diagnóstico por Imagem (Turma C)", 36, {})
+    add("7ª Fase", "DIAG-D", "Diagnóstico por Imagem (Turma D)", 36, {"QUINTA": [9, 10]})
 
-    add("6ª Fase", "PATESP-T", "Patologia Especial (Teórica)", 72, {"SEXTA": [1, 2, 3]})
-    add("6ª Fase", "PATESP-A", "Patologia Especial (Turma A)", 36, {"QUINTA": [9, 10]})
-    add("6ª Fase", "PATESP-B", "Patologia Especial (Turma B)", 36, {"SEXTA": [7, 8]})
-    add("6ª Fase", "PATESP-C", "Patologia Especial (Turma C)", 36, {"SEXTA": [9, 10]})
+    add("7ª Fase", "CLINC-T", "Clínica Médica de Cães e Gatos I (Teórica)", 90, {"SEXTA": [1, 2], "QUINTA": [7, 8]})
+    add("7ª Fase", "CLINC-A", "Clínica Médica de Cães e Gatos I (Turma A)", 36, {"TERÇA": [7]})
+    add("7ª Fase", "CLINC-B", "Clínica Médica de Cães e Gatos I (Turma B)", 36, {})
+    add("7ª Fase", "CLINC-C", "Clínica Médica de Cães e Gatos I (Turma C)", 36, {"QUINTA": [9, 10]})
+    add("7ª Fase", "CLINC-D", "Clínica Médica de Cães e Gatos I (Turma D)", 36, {"QUINTA": [7, 8]})
 
-    add("6ª Fase", "PISCI-7", "Piscicultura", 36, {"QUARTA": [3, 4, 5]})
-    add("6ª Fase", "PISCI-C", "Piscicultura (Turma C)", 36, {"QUINTA": [5]})
-    add("6ª Fase", "TERAP-7", "Terapêutica Veterinária", 36, {"SEGUNDA": [3, 4]})
+    add("7ª Fase", "FISREPO-T", "Fisiopatologia da Reprodução I (Teórica)", 90, {"TERÇA": [3, 4]})
+    add("7ª Fase", "FISREPO-A", "Fisiopatologia da Reprodução I (Turma A)", 36, {"QUARTA": [7]})
+    add("7ª Fase", "FISREPO-B", "Fisiopatologia da Reprodução I (Turma B)", 36, {"QUARTA": [11]})
+    add("7ª Fase", "FISREPO-C", "Fisiopatologia da Reprodução I (Turma C)", 36, {"QUINTA": [7, 8]})
+    add("7ª Fase", "FISREPO-D", "Fisiopatologia da Reprodução I (Turma D)", 36, {"QUINTA": [9, 10]})
 
-    # 7ª FASE
-    add("7ª Fase", "ANEST-T", "Anestesiologia (Teórica)", 54, {"SEGUNDA": [1]})
-    add("7ª Fase", "ANEST-A", "Anestesiologia (Turma A)", 36, {"SEGUNDA": [7, 8]})
-    add("7ª Fase", "ANEST-B", "Anestesiologia (Turma B)", 36, {"TERÇA": [1, 2]})
-    add("7ª Fase", "ANEST-C", "Anestesiologia (Turma C)", 36, {"TERÇA": [7, 8]})
-    add("7ª Fase", "ANEST-D", "Anestesiologia (Turma D)", 36, {"TERÇA": [9, 10]})
+    add("7ª Fase", "BOVIC-T", "Bovinocultura de Corte (Teórica)", 54, {"SÁBADO": [2, 3, 4]})
+    add("7ª Fase", "SAUP-T", "Saúde Pública Veterinária (Teórica)", 54, {"SÁBADO": [7, 8]})
+    add("7ª Fase", "SAUP-A", "Saúde Pública Veterinária (Turma A)", 36, {"SÁBADO": [9]})
+    add("7ª Fase", "SAUP-B", "Saúde Pública Veterinária (Turma B)", 36, {"SÁBADO": [10]})
 
-    add("7ª Fase", "TCIR-T", "Técnica Cirúrgica (Teórica)", 72, {"SEGUNDA": [9, 10]})
-    add("7ª Fase", "TCIR-A", "Técnica Cirúrgica (Turma A)", 36, {"TERÇA": [0, 1, 2]})
-    add("7ª Fase", "TCIR-B", "Técnica Cirúrgica (Turma B)", 36, {"TERÇA": [3, 4, 5]})
-    add("7ª Fase", "TCIR-C", "Técnica Cirúrgica (Turma C)", 36, {"QUARTA": [0, 1, 2]})
-    add("7ª Fase", "TCIR-D", "Técnica Cirúrgica (Turma D)", 36, {"QUARTA": [3, 4, 5]})
-
-    add("7ª Fase", "DIAG-T", "Diagnóstico por Imagem (Teórica)", 54, {"SEGUNDA": [11]})
-    add("7ª Fase", "DIAG-A", "Diagnóstico por Imagem (Turma A)", 36, {"QUARTA": [1, 2]})
-    add("7ª Fase", "DIAG-B", "Diagnóstico por Imagem (Turma B)", 36, {"QUARTA": [3, 4]})
-    add("7ª Fase", "DIAG-C", "Diagnóstico por Imagem (Turma C)", 36, {"QUARTA": [7, 8]})
-    add("7ª Fase", "DIAG-D", "Diagnóstico por Imagem (Turma D)", 36, {"QUARTA": [9, 10]})
-
-    add("7ª Fase", "CLINC-T", "Clínica Médica de Cães e Gatos (Teórica)", 72, {"QUINTA": [0, 1, 2]})
-    add("7ª Fase", "CLINC-A", "Clínica Médica de Cães e Gatos (Turma A)", 36, {"SEGUNDA": [7, 8]})
-    add("7ª Fase", "CLINC-B", "Clínica Médica de Cães e Gatos (Turma B)", 36, {"TERÇA": [7, 8]})
-    add("7ª Fase", "CLINC-C", "Clínica Médica de Cães e Gatos (Turma C)", 36, {"QUINTA": [3, 4]})
-    add("7ª Fase", "CLINC-D", "Clínica Médica de Cães e Gatos (Turma D)", 36, {"QUINTA": [7, 8]})
-
-    add("7ª Fase", "FISREPO-T", "Fisiopatologia da Reprodução (Teórica)", 72, {"SEGUNDA": [3, 4, 5]})
-    add("7ª Fase", "FISREPO-A", "Fisiopatologia da Reprodução (Turma A)", 36, {"TERÇA": [7, 8]})
-    add("7ª Fase", "FISREPO-B", "Fisiopatologia da Reprodução (Turma B)", 36, {"TERÇA": [9, 10]})
-    add("7ª Fase", "FISREPO-C", "Fisiopatologia da Reprodução (Turma C)", 36, {"QUARTA": [7, 8]})
-    add("7ª Fase", "FISREPO-D", "Fisiopatologia da Reprodução (Turma D)", 36, {"QUARTA": [9, 10]})
-
-    add("7ª Fase", "BOVIC-T", "Bovinocultura de Corte (Teórica)", 54, {"SEXTA": [2, 3, 4]})
-    add("7ª Fase", "SAUP-T", "Saúde Pública Veterinária (Teórica)", 54, {"SEXTA": [7, 8]})
-    add("7ª Fase", "SAUP-A", "Saúde Pública Veterinária (Turma A)", 36, {"SEXTA": [9]})
-    add("7ª Fase", "SAUP-B", "Saúde Pública Veterinária (Turma B)", 36, {"SEXTA": [10]})
-
-    # 8ª FASE
-    add("8ª Fase", "CLINE-T", "Clínica Médica de Equinos (Teórica)", 72, {"TERÇA": [1, 2, 3]})
+    # =========================================================================
+    # 8ª FASE - 2026/2 (Página 9 - VET122-08)
+    # =========================================================================
+    add("8ª Fase", "CLINE-T", "Clínica Médica de Equinos (Teórica)", 90, {"TERÇA": [1, 2, 3, 4]})
     add("8ª Fase", "CLINE-A", "Clínica Médica de Equinos (Turma A)", 36, {"SEGUNDA": [1, 2]})
-    add("8ª Fase", "CLINE-B", "Clínica Médica de Equinos (Turma B)", 36, {"QUARTA": [3, 4]})
-    add("8ª Fase", "CLINE-C", "Clínica Médica de Equinos (Turma C)", 36, {"QUARTA": [9, 10]})
+    add("8ª Fase", "CLINE-B", "Clínica Médica de Equinos (Turma B)", 36, {"SEGUNDA": [3, 4]})
+    add("8ª Fase", "CLINE-C", "Clínica Médica de Equinos (Turma C)", 36, {"QUINTA": [9, 10]})
     add("8ª Fase", "CLINE-D", "Clínica Médica de Equinos (Turma D)", 36, {"SEXTA": [1, 2]})
 
-    add("8ª Fase", "PATCL2-T", "Patologia e Clínica Cirúrgica (Teórica)", 72, {"QUARTA": [1, 2]})
-    add("8ª Fase", "PATCL2-A", "Patologia e Clínica Cirúrgica (Turma A)", 36, {"SEGUNDA": [1, 2, 3, 4]})
-    add("8ª Fase", "PATCL2-B", "Patologia e Clínica Cirúrgica (Turma B)", 36, {"QUARTA": [6, 7, 8, 9]})
-    add("8ª Fase", "PATCL2-C", "Patologia e Clínica Cirúrgica (Turma C)", 36, {"QUINTA": [1, 2, 3, 4]})
-    add("8ª Fase", "PATCL2-D", "Patologia e Clínica Cirúrgica (Turma D)", 36, {"SEXTA": [1, 2, 3, 4]})
+    add("8ª Fase", "PATCL2-T", "Patologia e Clínica Cirúrgica (Teórica)", 108, {"QUINTA": [3, 4, 11], "SEXTA": [3, 4, 9, 10], "SÁBADO": [3, 4]})
+    add("8ª Fase", "PATCL2-A", "Patologia e Clínica Cirúrgica (Turma A)", 36, {"SEGUNDA": [2]})
+    add("8ª Fase", "PATCL2-B", "Patologia e Clínica Cirúrgica (Turma B)", 36, {"QUARTA": [3, 4, 11]})
+    add("8ª Fase", "PATCL2-C", "Patologia e Clínica Cirúrgica (Turma C)", 36, {"QUINTA": [1, 2]})
+    add("8ª Fase", "PATCL2-D", "Patologia e Clínica Cirúrgica (Turma D)", 36, {"SEXTA": [1, 2]})
 
-    add("8ª Fase", "BOVIL-8", "Bovinocultura de Leite", 54, {"SEGUNDA": [7, 8, 9]})
-    
-    add("8ª Fase", "SANSU-T", "Sanidade Suína (Teórica)", 54, {"TERÇA": [6, 7]})
-    add("8ª Fase", "SANSU-A", "Sanidade Suína (Turma A)", 36, {"TERÇA": [8]})
-    add("8ª Fase", "SANSU-B", "Sanidade Suína (Turma B)", 36, {"QUARTA": [7]})
+    add("8ª Fase", "BOVIL", "Bovinocultura de Leite", 54, {"SEGUNDA": [7, 8, 9, 10]})
+    add("8ª Fase", "SANSU-T", "Sanidade Suína (Teórica)", 54, {"TERÇA": [7, 8]})
+    add("8ª Fase", "SANSU-A", "Sanidade Suína (Turma A)", 36, {"TERÇA": [9]})
+    add("8ª Fase", "SANSU-B", "Sanidade Suína (Turma B)", 36, {"QUARTA": [7, 8]})
     add("8ª Fase", "SANSU-C", "Sanidade Suína (Turma C)", 36, {"QUARTA": [8]})
+    
+    add("8ª Fase", "INSPE-T", "Inspeção e Tec. Prod. Origem Animal I (Teórica)", 72, {"SEGUNDA": [11, 12]})
+    add("8ª Fase", "INSPE-A", "Inspeção e Tec. Prod. Origem Animal I (Turma A)", 36, {"TERÇA": [11]})
+    add("8ª Fase", "INSPE-B", "Inspeção e Tec. Prod. Origem Animal I (Turma B)", 36, {"TERÇA": [12]})
+    
+    add("8ª Fase", "AVIC-T", "Avicultura (Teórica)", 54, {"QUINTA": [7, 8]})
+    add("8ª Fase", "AVIC-A", "Avicultura (Turma A)", 36, {"QUINTA": [9]})
+    add("8ª Fase", "AVIC-B", "Avicultura (Turma B)", 36, {"QUINTA": [10]})
+    add("8ª Fase", "AVIC-C", "Avicultura (Turma C)", 36, {"QUINTA": [11]})
+    
+    add("8ª Fase", "OVINO-T", "Ovinocultura (Teórica)", 36, {"SÁBADO": [7, 8, 9]})
+    add("8ª Fase", "OVINO-A", "Ovinocultura (Turma A)", 36, {"SÁBADO": [9]})
+    add("8ª Fase", "OVINO-B", "Ovinocultura (Turma B)", 36, {"SÁBADO": [10]})
 
-    add("8ª Fase", "INSPE-T", "Inspeção e Tech. Prod. Origem Anim. I", 72, {"SEGUNDA": [10, 11]})
-    add("8ª Fase", "INSPE-A", "Inspeção e Tech. Origem Anim. I (Turma A)", 36, {"TERÇA": [10, 11]})
-    add("8ª Fase", "INSPE-B", "Inspeção e Tech. Origem Anim. I (Turma B)", 36, {"TERÇA": [12, 13]})
+    # =========================================================================
+    # 9ª FASE - 2026/2 (Página 10 - VET122-09)
+    # =========================================================================
+    add("9ª Fase", "OBSTE-T", "Obstetrícia (Teórica)", 72, {"TERÇA": [7, 8]})
+    add("9ª Fase", "OBSTE-A", "Obstetrícia (Turma A)", 36, {"SEGUNDA": [1, 2]})
+    add("9ª Fase", "OBSTE-B", "Obstetrícia (Turma B)", 36, {"SEGUNDA": [3, 4]})
+    add("9ª Fase", "OBSTE-C", "Obstetrícia (Turma C)", 36, {"SEGUNDA": [7, 8]})
+    add("9ª Fase", "OBSTE-D", "Obstetrícia (Turma D)", 36, {"SEGUNDA": [9, 10]})
 
-    add("8ª Fase", "AVIC-T", "Avicultura (Teórica)", 54, {"QUINTA": [6, 7]})
-    add("8ª Fase", "AVIC-A", "Avicultura (Turma A)", 36, {"QUINTA": [8]})
-    add("8ª Fase", "AVIC-B", "Avicultura (Turma B)", 36, {"QUINTA": [9]})
-    add("8ª Fase", "AVIC-C", "Avicultura (Turma C)", 36, {"QUINTA": [10]})
-
-    add("8ª Fase", "OVINO-T", "Ovinocultura (Teórica)", 54, {"SEXTA": [7]})
-    add("8ª Fase", "OVINO-A", "Ovinocultura (Turma A)", 36, {"SEXTA": [8]})
-    add("8ª Fase", "OVINO-B", "Ovinocultura (Turma B)", 36, {"SEXTA": [9]})
-
-    # 9ª FASE
-    add("9ª Fase", "OBSTE-T", "Obstetrícia Veterinária (Teórica)", 54, {"TERÇA": [7, 8]})
-    add("9ª Fase", "OBSTE-A", "Obstetrícia Veterinária (Turma A)", 36, {"SEGUNDA": [1, 2]})
-    add("9ª Fase", "OBSTE-B", "Obstetrícia Veterinária (Turma B)", 36, {"SEGUNDA": [3, 4]})
-    add("9ª Fase", "OBSTE-C", "Obstetrícia Veterinária (Turma C)", 36, {"SEGUNDA": [7, 8]})
-    add("9ª Fase", "OBSTE-D", "Obstetrícia Veterinária (Turma D)", 36, {"SEGUNDA": [9, 10]})
-
+    add("9ª Fase", "CLCG2-T", "Clínica Médica de Cães e Gatos II (Teórica)", 90, {"TERÇA": [1, 2]})
     add("9ª Fase", "CLCG2-A", "Clínica Médica de Cães e Gatos II (Turma A)", 36, {"SEGUNDA": [1, 2]})
     add("9ª Fase", "CLCG2-B", "Clínica Médica de Cães e Gatos II (Turma B)", 36, {"SEGUNDA": [3, 4]})
     add("9ª Fase", "CLCG2-C", "Clínica Médica de Cães e Gatos II (Turma C)", 36, {"SEGUNDA": [9, 10]})
-    add("9ª Fase", "CLCG2-D", "Clínica Médica de Cães e Gatos II (Turma D)", 36, {"TERÇA": [3, 4]})
-    add("9ª Fase", "CLCG2-TEO", "Clínica Médica de Cães e Gatos II (Teórica)", 54, {"TERÇA": [0, 1, 2]})
+    add("9ª Fase", "CLCG2-D", "Clínica Médica de Cães e Gatos II (Turma D)", 36, {"QUARTA": [3, 4]})
 
-    add("9ª Fase", "FRIA272-T", "Fisiopatologia da Reprodução II (Teórica)", 72, {"QUINTA": [1, 2, 3, 4], "TERÇA": [11, 12]})
-    add("9ª Fase", "FRIA272-C", "Fisiopatologia da Reprodução II (Turma C)", 36, {"SEXTA": [1, 2, 3, 4]})
+    add("9ª Fase", "FRIA2-T", "Fisiopatologia da Reprodução II (Teórica)", 72, {"SÁBADO": [12]})
+    add("9ª Fase", "FRIA2-A", "Fisiopatologia da Reprodução II (Turma A)", 36, {"QUINTA": [1, 2]})
+    add("9ª Fase", "FRIA2-B", "Fisiopatologia da Reprodução II (Turma B)", 36, {"QUINTA": [3, 4]})
+    add("9ª Fase", "FRIA2-C", "Fisiopatologia da Reprodução II (Turma C)", 36, {"SEXTA": [1, 2]})
+    add("9ª Fase", "FRIA2-D", "Fisiopatologia da Reprodução II (Turma D)", 36, {"SEXTA": [3, 4]})
 
-    add("9ª Fase", "INSP2-T", "Inspeção e Tech. Prod. Origem Anim. II", 72, {"QUARTA": [0, 1, 2]})
-    add("9ª Fase", "INSP2-A", "Inspeção e Tech. Origem Anim. II (Turma A)", 36, {"QUARTA": [3, 4]})
-    add("9ª Fase", "INSP2-B", "Inspeção e Tech. Origem Anim. II (Turma B)", 36, {"QUARTA": [7, 8]})
-    add("9ª Fase", "INSP2-C", "Inspeção e Tech. Origem Anim. II (Turma C)", 36, {"QUARTA": [9, 10]})
-    add("9ª Fase", "INSP2-D", "Inspeção e Tech. Origem Anim. II (Turma D)", 36, {"QUARTA": [11, 12]})
+    add("9ª Fase", "INSP2-T", "Inspeção e Tec. Prod. Origem Animal II (Teórica)", 90, {"QUARTA": [1, 2]})
+    add("9ª Fase", "INSP2-A", "Inspeção e Tec. Prod. Origem Animal II (Turma A)", 36, {"QUARTA": [3, 4]})
+    add("9ª Fase", "INSP2-B", "Inspeção e Tec. Prod. Origem Animal II (Turma B)", 36, {"QUARTA": [7, 8]})
+    add("9ª Fase", "INSP2-C", "Inspeção e Tec. Prod. Origem Animal II (Turma C)", 36, {"QUARTA": [9, 10]})
+    add("9ª Fase", "INSP2-D", "Inspeção e Tec. Prod. Origem Animal II (Turma D)", 36, {"QUARTA": [12]})
 
-    add("9ª Fase", "TOXI-9", "Toxicologia e Plantas Tóxicas", 54, {"TERÇA": [9, 10]})
-
-    add("9ª Fase", "DAVES-T", "Doenças das Aves (Teórica)", 54, {"QUINTA": [7, 8, 9, 10]})
+    add("9ª Fase", "TOXI", "Toxicologia e Plantas Tóxicas", 36, {"TERÇA": [9, 10]})
+    add("9ª Fase", "DAVES-T", "Doenças das Aves (Teórica)", 72, {"SÁBADO": [7, 8, 9, 10]})
+    add("9ª Fase", "DAVES-A", "Doenças das Aves (Turma A)", 36, {"QUINTA": [7, 8]})
     add("9ª Fase", "DAVES-B", "Doenças das Aves (Turma B)", 36, {"SEXTA": [1, 2]})
     add("9ª Fase", "DAVES-C", "Doenças das Aves (Turma C)", 36, {"SEXTA": [3, 4]})
 
-    # ELETIVAS
-    add("Eletivas", "LACTI-EL", "Tecnologia de Lacticínios", 36, {"SEGUNDA": [3, 4]})
-    add("Eletivas", "CITO-EL", "Citologia Diagnóstica", 36, {"QUINTA": [4, 5]})
-    add("Eletivas", "DERMA-EL", "Dermatologia Veterinária", 36, {"SEXTA": [3, 4]})
-    add("Eletivas", "FISIA-EL", "Fisiatria Veterinária", 36, {"SEGUNDA": [7, 8]})
-    add("Eletivas", "GEREN-EL", "Gerenciamento e Projetos Agropecuários", 36, {"QUARTA": [7, 8]})
-    add("Eletivas", "EQUIN-EL", "Equinocultura", 36, {"QUINTA": [7, 8]})
-    add("Eletivas", "MICRO-PESQ", "Microbiologia dos Pescados", 36, {"QUINTA": [7, 8]})
-    add("Eletivas", "CARDIO-EL", "Cardiologia de Cães e Gatos", 36, {"SEXTA": [7, 8]})
-    add("Eletivas", "MEDSEL-EL", "Medicina de Animais Selvagens", 36, {"QUARTA": [9, 10]})
-    add("Eletivas", "COMPBEM-EL", "Comportamento e Bem-Estar Animal II", 36, {"TERÇA": [7, 8]})
-    add("Eletivas", "OFTAL-EL", "Oftalmologia Veterinária", 36, {"TERÇA": [3, 4]})
-    add("Eletivas", "AQUAC-EL", "Aquacultura", 36, {"TERÇA": [11, 12]})
-    add("Eletivas", "ANAT-AVES", "Anatomia das Aves", 36, {"QUARTA": [7, 8]})
+    # =========================================================================
+    # ELETIVAS (10ª FASE) - 2026/2 (Página 11)
+    # =========================================================================
+    add("Eletivas", "LACTI", "Lacticínios", 36, {"TERÇA": [3, 4]})
+    add("Eletivas", "OFTAL", "Oftalmologia Veterinária", 36, {"QUARTA": [3, 4]})
+    add("Eletivas", "DERMA", "Dermatologia Veterinária", 36, {"QUINTA": [3], "SEXTA": [4]})
+    add("Eletivas", "CITO", "Citologia Diagnóstica", 36, {"QUINTA": [4], "SEXTA": [5]})
+    add("Eletivas", "FISIA", "Fisiatria Veterinária", 36, {"TERÇA": [7, 8]})
+    add("Eletivas", "COMPBEM", "Comportamento e Bem-Estar Animal", 36, {"QUARTA": [7, 8]})
+    add("Eletivas", "GEREN", "Gerenciamento e Produção Avícola", 36, {"QUINTA": [7, 8]})
+    add("Eletivas", "EQUIN", "Equinocultura", 36, {"SEXTA": [7, 8]})
+    add("Eletivas", "MICROAL", "Microbiologia dos Produtos de Origem Animal", 36, {"SEXTA": [7, 8]})
+    add("Eletivas", "CARDIO", "Cardiologia de Cães e Gatos", 36, {"SEXTA": [7, 8]})
+    add("Eletivas", "MEDSEL", "Medicina de Animais Silvestres", 36, {"SEGUNDA": [9, 10]})
+    add("Eletivas", "AQUAC", "Aquacultura", 36, {"SEGUNDA": [11, 12]})
+    add("Eletivas", "ESTAG", "Estágio Curricular Supervisionado", 486, {"SEGUNDA": [15]})
 
     link_theory_to_practicals(catalog)
-    catalog = apply_official_data(catalog)
     return catalog
 
-
-GROUP_ALIASES = {
-    "GENET": "GENE",
-}
-
-
 def infer_group_and_kind(code: str):
-    if code in GROUP_ALIASES:
-        return GROUP_ALIASES[code], "teorica"
-    if code.endswith("-TEO"):
-        return code[:-4], "teorica"
     if code.endswith("-T"):
         return code[:-2], "teorica"
+    if code.endswith("-TEO"):
+        return code[:-4], "teorica"
     if len(code) >= 2 and code[-2] == "-" and code[-1] in "ABCDE":
         return code[:-2], "pratica"
     return code, "unica"
-
 
 def link_theory_to_practicals(catalog: List[Course]) -> None:
     for c in catalog:
@@ -360,197 +385,39 @@ def link_theory_to_practicals(catalog: List[Course]) -> None:
         if c.kind == "pratica":
             c.theory = theory_by_group.get(c.group)
 
-
-def combined_schedule(course: Course) -> Dict[str, List[int]]:
-    sched: Dict[str, List[int]] = {day: list(slots)
-                                    for day, slots in course.schedule.items()}
+def get_combined_schedule(course: Course) -> Dict[str, List[int]]:
+    """Retorna um dicionário único com todos os horários (teórica + prática) mesclados e sem duplicatas."""
+    combined: Dict[str, List[int]] = {}
+    
+    # Adiciona os horários da própria disciplina (prática)
+    for day, slots in course.schedule.items():
+        combined[day] = list(slots)
+    
+    # Adiciona os horários da teórica, se existir
     if course.theory:
         for day, slots in course.theory.schedule.items():
-            sched[day] = sorted(set(sched.get(day, [])) | set(slots))
-    return sched
-
-
-# =========================================================================
-# GRADE CURRICULAR VIGENTE — UDESC CAV
-# =========================================================================
-
-OFFICIAL: Dict[str, tuple] = {
-    "ANA1-90": ("Anatomia I", 90, 5, "Obrigatória"),
-    "BIOQB72": ("Bioquímica de Biomoléculas", 72, 4, "Obrigatória"),
-    "DEONT36": ("Deontologia", 36, 2, "Obrigatória"),
-    "EPIMC36": ("Epistemologia e Metodologia Científica", 36, 2, "Obrigatória"),
-    "ESTCA54": ("Estatística", 54, 3, "Obrigatória"),
-    "HISTG72": ("Histologia Geral", 72, 4, "Obrigatória"),
-    "ANAII90": ("Anatomia II", 90, 5, "Obrigatória"),
-    "BIOQM72": ("Bioquímica Metabólica", 72, 4, "Obrigatória"),
-    "ECOLO36": ("Ecologia", 36, 2, "Obrigatória"),
-    "EXPER36": ("Experimentação Animal", 36, 2, "Obrigatória"),
-    "GENET72": ("Genética", 72, 4, "Obrigatória"),
-    "HIST-90": ("Histologia e Embriologia", 90, 5, "Obrigatória"),
-    "ANATT72": ("Anatomia Topográfica", 72, 4, "Obrigatória"),
-    "FIS-I90": ("Fisiologia I", 90, 5, "Obrigatória"),
-    "IMUNO54": ("Imunologia", 54, 3, "Obrigatória"),
-    "MICR72": ("Microbiologia Geral", 72, 4, "Obrigatória"),
-    "PARA172": ("Parasitologia I", 72, 4, "Obrigatória"),
-    "SOAMV36": ("Sociologia Aplicada a Med Veterinária", 36, 2, "Obrigatória"),
-    "ECOAD72": ("Economia e Administração", 72, 4, "Obrigatória"),
-    "EPIDE36": ("Epidemiologia", 36, 2, "Obrigatória"),
-    "FARMG72": ("Farmacologia Geral", 72, 4, "Obrigatória"),
-    "FISI272": ("Fisiologia II", 72, 4, "Obrigatória"),
-    "MELHO36": ("Melhoramento Animal", 36, 2, "Obrigatória"),
-    "MICR-90": ("Microbiologia Especial", 90, 5, "Obrigatória"),
-    "NUTRI54": ("Nutrição Animal", 54, 3, "Obrigatória"),
-    "PARA272": ("Parasitologia II", 72, 4, "Obrigatória"),
-    "ALIMA90": ("Alimentos e Alimentação Animal", 90, 5, "Obrigatória"),
-    "COEXT36": ("Comunicação Extensão Rural", 36, 2, "Obrigatória"),
-    "FARMD72": ("Farmacodinâmica", 72, 4, "Obrigatória"),
-    "FORRA54": ("Forragicultura", 54, 3, "Obrigatória"),
-    "PACLI72": ("Patologia Clínica Veterinária", 72, 4, "Obrigatória"),
-    "PATG-90": ("Patologia Geral", 90, 5, "Obrigatória"),
-    "SEMIO90": ("Semiologia", 90, 5, "Obrigatória"),
-    "CLINR90": ("Clínica Médica de Ruminantes", 90, 5, "Obrigatória"),
-    "DOENP72": ("Doenças Parasitárias", 72, 4, "Obrigatória"),
-    "DOIC90": ("Doenças Infecto-Contagiosas", 90, 5, "Obrigatória"),
-    "PATE-90": ("Patologia Especial", 90, 5, "Obrigatória"),
-    "PISCI36": ("Piscicultura", 36, 2, "Obrigatória"),
-    "SUINO54": ("Suinocultura", 54, 3, "Obrigatória"),
-    "TERAP36": ("Terapêutica", 36, 2, "Obrigatória"),
-    "ANES54": ("Anestesiologia", 54, 3, "Obrigatória"),
-    "BOVCO54": ("Bovinocultura de Corte", 54, 3, "Obrigatória"),
-    "CLCG90": ("Clínica Médica de Cães e Gatos I", 90, 5, "Obrigatória"),
-    "DIAGI54": ("Diagnóstico por Imagem", 54, 3, "Obrigatória"),
-    "FRIA190": ("Fisiopatologia da Reprodução I", 90, 5, "Obrigatória"),
-    "SAUPU54": ("Saúde Pública Veterinária", 54, 3, "Obrigatória"),
-    "TECIR90": ("Técnica Cirúrgica", 90, 5, "Obrigatória"),
-    "AVICU54": ("Avicultura", 54, 3, "Obrigatória"),
-    "BOVLE54": ("Bovinocultura de Leite", 54, 3, "Obrigatória"),
-    "CLIEQ90": ("Clínica Médica de Equinos", 90, 5, "Obrigatória"),
-    "INSP172": ("Inspeção e Tecn de Prod Origem Animal I", 72, 4, "Obrigatória"),
-    "OVINO36": ("Ovinocultura", 36, 2, "Obrigatória"),
-    "PACC108": ("Patologia e Clínica Cirúrgica", 108, 6, "Obrigatória"),
-    "SANSU54": ("Sanidade Suína", 54, 3, "Obrigatória"),
-    "ATCO396": ("Atividades Complementares", 396, 22, "Atividade"),
-    "CLCG290": ("Clínica Médica de Cães e Gatos II", 90, 5, "Obrigatória"),
-    "DAVES72": ("Doenças das Aves", 72, 4, "Obrigatória"),
-    "FRIA272": ("Fisiopatologia da Reprodução II", 72, 4, "Obrigatória"),
-    "INS-290": ("Inspeção e Tec Produtos Origem Animal II", 90, 5, "Obrigatória"),
-    "OBSTE72": ("Obstetrícia", 72, 4, "Obrigatória"),
-    "TOPTO36": ("Toxicologia e Plantas Tóxicas", 36, 2, "Obrigatória"),
-    "AALIM54": ("Análise de Alimentos para Animais", 54, 3, "Eletiva"),
-    "AGVIR36": ("Agentes Virais de Caninos e Felinos", 36, 2, "Eletiva"),
-    "ANIMP36": ("Animais Peçonhentos e Ven. Int. Med. Vet.", 36, 2, "Eletiva"),
-    "AQUAC36": ("Aqüicultura", 36, 2, "Eletiva"),
-    "BIOMO36": ("Biologia Molecular", 36, 2, "Eletiva"),
-    "CARDI36": ("Cardiologia de Cães e Gatos", 36, 2, "Eletiva"),
-    "CINOF36": ("Cinofilia e Felinotecnia", 36, 2, "Eletiva"),
-    "CITOL36": ("Citologia Diagnóstica", 36, 2, "Eletiva"),
-    "COMPO36": ("Comportamento e Bem Estar Animal", 36, 2, "Eletiva"),
-    "CRIAA36": ("Criação de Aves de Interesse Zootécnico", 36, 2, "Eletiva"),
-    "DERMA36": ("Dermatologia Veterinária", 36, 2, "Eletiva"),
-    "EQUIN36": ("Eqüinocultura", 36, 2, "Eletiva"),
-    "ESTC486": ("Estágio Curricular Supervisionado", 486, 27, "Estágio"),
-    "FISIA36": ("Fisiatria Veterinária", 36, 2, "Eletiva"),
-    "GENET36": ("Genética Médica Veterinária", 36, 2, "Eletiva"),
-    "GERAV36": ("Gerenciamento e Produção Avícola", 36, 2, "Eletiva"),
-    "GEREL54": ("Gerenciamento Prod. de Bovinos de Leite", 54, 3, "Eletiva"),
-    "GERSU36": ("Gerenciamento e Produção de Suínos", 36, 2, "Eletiva"),
-    "INSEM36": ("Inseminação Artificial e Andrologia", 36, 2, "Eletiva"),
-    "LACTI36": ("Lacticínios", 36, 2, "Eletiva"),
-    "MANFS72": ("Manejo de Fauna Silvestre", 72, 4, "Eletiva"),
-    "MEDAS36": ("Medicina de Animais Silvestres", 36, 2, "Eletiva"),
-    "MICRA36": ("Microbiologia dos Prod. de Origem Animal", 36, 2, "Eletiva"),
-    "OFTAL36": ("Oftalmologia Veterinária", 36, 2, "Eletiva"),
-    "TEMBR36": ("Tec. p/ a Produção de Embriões Bovinos", 36, 2, "Eletiva"),
-}
-
-GROUP_TO_OFFICIAL: Dict[str, str] = {
-    "ANA1": "ANA1-90", "HISTG": "HISTG72", "BIOQB": "BIOQB72",
-    "ESTCA": "ESTCA54", "SOAMV": "SOAMV36", "ECOLO-1": "ECOLO36",
-    "ANA2": "ANAII90", "HIST2": "HIST-90", "GENE": "GENET72", "BIOQM": "BIOQM72",
-    "IMUNO": "IMUNO54", "PARA1": "PARA172", "FISI1": "FIS-I90",
-    "MICRO": "MICR72", "ANATT": "ANATT72",
-    "NUTRI-4": "NUTRI54", "EPIDE-4": "EPIDE36", "ECONO-4": "ECOAD72",
-    "MELHO-4": "MELHO36", "FISIO2": "FISI272", "FARM1": "FARMG72", "MICRE": "MICR-90",
-    "FORRA-5": "FORRA54", "SEMIO": "SEMIO90", "FARMD": "FARMD72", "PATCL": "PACLI72",
-    "PATG": "PATG-90", "ALIMA-5": "ALIMA90", "COEXT-5": "COEXT36",
-    "SUINO": "SUINO54", "INFEC": "DOIC90", "PARAS2": "DOENP72", "PARAS2-6": "DOENP72", "CLINR": "CLINR90",
-    "PATESP": "PATE-90", "PISCI-7": "PISCI36", "TERAP-7": "TERAP36",
-    "ANEST": "ANES54", "TCIR": "TECIR90", "DIAG": "DIAGI54", "CLINC": "CLCG90",
-    "FISREPO": "FRIA190", "BOVIC": "BOVCO54", "SAUP": "SAUPU54",
-    "CLINE": "CLIEQ90", "PATCL2": "PACC108", "BOVIL-8": "BOVLE54", "SANSU": "SANSU54",
-    "INSPE": "INSP172", "AVIC": "AVICU54", "OVINO": "OVINO36",
-    "OBSTE": "OBSTE72", "FRIA272": "FRIA272", "INSP2": "INS-290",
-    "TOXI-9": "TOPTO36", "DAVES": "DAVES72", "CLCG2": "CLCG290",
-    "LACTI-EL": "LACTI36", "CITO-EL": "CITOL36", "DERMA-EL": "DERMA36",
-    "FISIA-EL": "FISIA36", "EQUIN-EL": "EQUIN36", "INSEM-EL": "INSEM36",
-    "BIOMOL-EL": "BIOMO36", "CARDIO-EL": "CARDI36", "MEDSEL-EL": "MEDAS36",
-    "ANALAL-EL": "AALIM54", "PECON-EL": "ANIMP36", "COMPOR": "COMPO36",
-}
-GROUP_PHASE_OVERRIDE: Dict[str, str] = {
-    "SOAMV": "3ª Fase",
-    "ECOLO-1": "2ª Fase",
-    "COMPOR": "Eletivas",
-}
-
-GROUPS_TO_REMOVE = {"EXTEN", "GEREN-EL", "MICRO-PESQ", "COMPBEM-EL", "LIBRAS-EL"}
-
-NEW_OFFICIAL_ITEMS = [
-    ("DEONT36", "1ª Fase"), ("EPIMC36", "1ª Fase"),
-    ("EXPER36", "2ª Fase"),
-    ("PARA272", "4ª Fase"),
-    ("AGVIR36", "Eletivas"), ("AQUAC36", "Eletivas"), ("CINOF36", "Eletivas"),
-    ("CRIAA36", "Eletivas"), ("GENET36", "Eletivas"), ("GERAV36", "Eletivas"),
-    ("GEREL54", "Eletivas"), ("GERSU36", "Eletivas"), ("MANFS72", "Eletivas"),
-    ("MICRA36", "Eletivas"), ("OFTAL36", "Eletivas"), ("TEMBR36", "Eletivas"),
-    ("ATCO396", "9ª Fase"),
-    ("ESTC486", "Eletivas"),
-]
-
-
-def apply_official_data(catalog: List[Course]) -> List[Course]:
-    result: List[Course] = []
-    for c in catalog:
-        if c.group in GROUPS_TO_REMOVE:
-            continue
-        official_code = GROUP_TO_OFFICIAL.get(c.group)
-        if official_code:
-            _, ch, creditos, tipo = OFFICIAL[official_code]
-            c.official_code = official_code
-            c.ch = ch
-            c.creditos = creditos
-            c.tipo = tipo
-            if c.group in GROUP_PHASE_OVERRIDE:
-                c.phase = GROUP_PHASE_OVERRIDE[c.group]
-        result.append(c)
-
-    for official_code, item_phase in NEW_OFFICIAL_ITEMS:
-        name, ch, creditos, tipo = OFFICIAL[official_code]
-        new_c = Course(official_code, name, ch, {}, phase=item_phase)
-        new_c.group = official_code
-        new_c.kind = "unica"
-        new_c.official_code = official_code
-        new_c.ch = ch
-        new_c.creditos = creditos
-        new_c.tipo = tipo
-        result.append(new_c)
-
-    return result
-
+            if day in combined:
+                # Mescla e ordena, removendo duplicatas
+                combined[day] = sorted(set(combined[day] + slots))
+            else:
+                combined[day] = list(slots)
+                
+    return combined
 
 def check_conflict(course_to_add: Course, registered_courses: List[Course]) -> Optional[str]:
-    schedule_to_add = combined_schedule(course_to_add)
+    schedule_to_add = get_combined_schedule(course_to_add)
     for reg in registered_courses:
+        reg_schedule = get_combined_schedule(reg)
         for day, slots in schedule_to_add.items():
-            if day in reg.schedule:
-                overlap = set(slots).intersection(set(reg.schedule[day]))
+            if day in reg_schedule:
+                overlap = set(slots).intersection(set(reg_schedule[day]))
                 if overlap:
                     conflicting_slot = sorted(list(overlap))[0]
                     return f"Com '{reg.name}' na {day} no horário {get_slot_time_str(conflicting_slot)}."
     return None
 
-
 # =========================================================================
-# TOKENS DE DESIGN
+# TOKENS DE DESIGN E INTERFACE
 # =========================================================================
 
 PAGE_BG = "#25CC8CC1"
@@ -573,11 +440,9 @@ PHASE_COLORS = {
     "Eletivas": ("#BB3D4E", "#8C99A6"),
 }
 
-
 def phase_gradient(phase: str) -> str:
     c1, c2 = PHASE_COLORS.get(phase, ("#04300A", "#5A7E21"))
     return f"linear-gradient(135deg, {c1} 0%, {c2} 100%)"
-
 
 # =========================================================================
 # INTERFACE — Streamlit
@@ -606,8 +471,7 @@ with col_left:
     st.subheader("Buscar disciplinas")
 
     phase_choice = st.selectbox("Fase", ["Todas as Fases"] + PHASES)
-    query = st.text_input(
-        "Buscar por código, nome ou carga horária").lower().strip()
+    query = st.text_input("Buscar por código, nome ou carga horária").lower().strip()
 
     filtered_courses = [
         c for c in st.session_state.available_courses
@@ -618,16 +482,13 @@ with col_left:
 
     st.subheader(f"Todas Disciplinas ({len(filtered_courses)})")
     options = [str(c) for c in filtered_courses]
-    selected_label = st.selectbox(
-        "Catálogo", options, label_visibility="collapsed") if options else None
+    selected_label = st.selectbox("Catálogo", options, label_visibility="collapsed") if options else None
 
     selected_course = None
     if selected_label:
         idx = options.index(selected_label)
         selected_course = filtered_courses[idx]
 
-        c1, c2 = PHASE_COLORS.get(
-            selected_course.phase, ("#0A0B0C", "#0C0D0E"))
         st.markdown(
             f"<span style='background:{phase_gradient(selected_course.phase)};color:white;"
             f"padding:2px 10px;border-radius:12px;font-size:14px;font-weight:600'>{selected_course.phase}</span>",
@@ -635,86 +496,40 @@ with col_left:
         )
 
         creditos_line = f"  \n**Créditos:** {selected_course.creditos}" if selected_course.creditos is not None else ""
+        
+        # CORREÇÃO DA EXIBIÇÃO DOS HORÁRIOS
+        combined_schedule_data = get_combined_schedule(selected_course)
+        
         details = (
             f"**Código:** {selected_course.display_code}  \n**Nome:** {selected_course.name}  \n"
-            f"**Carga Horária:** {selected_course.display_ch}h{creditos_line}  \n**Horários:**\n"
+            f"**Carga Horária:** {selected_course.display_ch}h{creditos_line}  \n**Horários (Teórica + Prática):**\n"
         )
-        if selected_course.schedule:
-            for day, slots in selected_course.schedule.items():
-                slot_str = ", ".join([get_slot_time_str(s) for s in slots])
-                details += f"- {day}: {slot_str}\n"
+        
+        if combined_schedule_data:
+            # Ordena os dias da semana conforme a ordem correta
+            for day in DAYS:
+                if day in combined_schedule_data:
+                    slot_str = ", ".join([get_slot_time_str(s) for s in sorted(combined_schedule_data[day])])
+                    details += f"- {day}: {slot_str}\n"
+        else:
+            details += "- Nenhum horário cadastrado.\n"
 
-        if selected_course.theory:
-            t = selected_course.theory
-            for day, slots in t.schedule.items():
-                slot_str = ", ".join([get_slot_time_str(s) for s in slots])
-                details += f"- {day}: {slot_str}\n"
         st.markdown(details)
 
-    btn_col1, btn_col2 = st.columns(2)
-    with btn_col1:
-        add_clicked = st.button(
-            "➕ Adicionar Disciplina", use_container_width=True, disabled=selected_course is None)
-    with btn_col2:
-        custom_clicked = st.button("+ Personalizada", use_container_width=True)
-
-    if add_clicked and selected_course:
-        already_added = any(
-            c.group == selected_course.group for c in st.session_state.registered_courses)
+    if st.button("➕ Adicionar Disciplina", use_container_width=True, disabled=selected_course is None) and selected_course:
+        already_added = any(c.group == selected_course.group for c in st.session_state.registered_courses)
         if already_added:
-            st.warning(
-                f"Você já tem uma turma de '{selected_course.name}' adicionada. "
-                "Remova-a antes de escolher outra."
-            )
+            st.warning(f"Você já tem uma turma de '{selected_course.name}' adicionada. Remova-a antes de escolher outra.")
         else:
-            conflict_msg = check_conflict(
-                selected_course, st.session_state.registered_courses)
+            conflict_msg = check_conflict(selected_course, st.session_state.registered_courses)
             if conflict_msg:
                 st.warning(f"Choque de Horário: {conflict_msg}")
             else:
                 st.session_state.registered_courses.append(selected_course)
                 if selected_course.theory:
-                    st.session_state.registered_courses.append(
-                        selected_course.theory)
-                    st.success(
-                        f"'{selected_course.name}' adicionada com sucesso!")
-                else:
-                    st.success(
-                        f"'{selected_course.name}' adicionada com sucesso!")
+                    st.session_state.registered_courses.append(selected_course.theory)
+                st.success(f"'{selected_course.name}' adicionada com sucesso!")
                 st.rerun()
-
-    if custom_clicked:
-        st.session_state["show_custom_form"] = True
-
-    if st.session_state.get("show_custom_form"):
-        with st.expander("Adicionar Matéria Personalizada", expanded=True):
-            with st.form("custom_course_form", clear_on_submit=True):
-                code = st.text_input("Código")
-                name = st.text_input("Nome da Matéria")
-                credits = st.number_input("Carga Horária", min_value=1, step=1)
-                phase = st.selectbox("Fase", PHASES)
-                day = st.selectbox("Dia da Semana", DAYS)
-                slot_labels = [
-                    f"Slot {s}: {get_slot_time_str(s)}" for s in range(TOTAL_SLOTS)]
-                selected_slots_labels = st.multiselect(
-                    "Selecione os Slots", slot_labels)
-
-                submitted = st.form_submit_button("Salvar Matéria")
-                if submitted:
-                    if not code or not name or not selected_slots_labels:
-                        st.error("Preencha todos os campos.")
-                    else:
-                        selected_slots = [slot_labels.index(
-                            s) for s in selected_slots_labels]
-                        new_course = Course(code, name, int(credits), {
-                                            day: selected_slots}, phase=phase)
-                        new_course.group = code
-                        new_course.kind = "unica"
-                        st.session_state.available_courses.append(new_course)
-                        st.session_state["show_custom_form"] = False
-                        st.success(
-                            f"Matéria '{code}' criada e adicionada ao catálogo.")
-                        st.rerun()
 
     grouped_groups = []
     for c in st.session_state.registered_courses:
@@ -725,31 +540,23 @@ with col_left:
     total_ch_geral = 0
     total_creditos_geral = 0
     for group in grouped_groups:
-        group_courses = [
-            c for c in st.session_state.registered_courses if c.group == group]
-        practical = next(
-            (c for c in group_courses if c.kind != "teorica"), group_courses[0])
-
+        group_courses = [c for c in st.session_state.registered_courses if c.group == group]
+        practical = next((c for c in group_courses if c.kind != "teorica"), group_courses[0])
         ch = practical.display_ch
         creditos = practical.creditos
         total_ch_geral += ch
         if creditos is not None:
             total_creditos_geral += creditos
-
         creditos_str = f" | {creditos} créd." if creditos is not None else ""
         label = f"[{practical.display_code}] {practical.name} ({ch}h{creditos_str})"
-
         row_col1, row_col2 = st.columns([4, 1])
         row_col1.write(label)
         if row_col2.button("🗑️", key=f"remove_{group}"):
-            st.session_state.registered_courses = [
-                c for c in st.session_state.registered_courses if c.group != group]
+            st.session_state.registered_courses = [c for c in st.session_state.registered_courses if c.group != group]
             st.rerun()
 
     if grouped_groups:
-        st.markdown(
-            f"**Total:** {total_ch_geral}h &nbsp;|&nbsp; {total_creditos_geral} créditos")
-
+        st.markdown(f"**Total:** {total_ch_geral}h &nbsp;|&nbsp; {total_creditos_geral} créditos")
 
 # ---------------- Painel direito: agenda ----------------
 with col_right:
@@ -781,11 +588,15 @@ with col_right:
             course = grid.get((day, slot))
             if course:
                 bg = phase_gradient(course.phase)
+                # Exibe o nome da disciplina e a turma de forma clara
+                display_name = course.name
+                if course.kind == "pratica":
+                    display_name += f" ({course.code[-1]})"  # Exibe a letra da turma
                 row += (
                     f"<td style='padding:6px;background:{bg};border:1px solid {GRID_LINE};"
                     "border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.15);"
                     "color:white;font-size:10px;font-weight:600;text-align:center'>"
-                    f"{course.display_code}<br><span style='font-weight:400;opacity:0.9'>{course.name[:14]}...</span></td>"
+                    f"{display_name[:20]}<br><span style='font-weight:400;opacity:0.9'>{course.display_code}</span></td>"
                 )
             else:
                 row += f"<td style='padding:6px;background:{EMPTY_CELL_BG};border:1px solid {GRID_LINE}'></td>"
@@ -808,3 +619,4 @@ with col_right:
     </div>
     """
     st.markdown(table_html, unsafe_allow_html=True)
+    
