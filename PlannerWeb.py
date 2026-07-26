@@ -463,9 +463,7 @@ def build_initial_catalog() -> List[Course]:
     # =====================================================================
     # Teóricas
    add("8ª Fase", "PACC-T", "Patologia e Clínica Cirúrgica",
-        108, {"TERÇA": [0, 1]})
-   add("8ª Fase", "CLIEQ-T", "Clínica Médica de Equinos Teórica",
-        90, {"TERÇA": [1,2,3 ]})   
+        108, {"TERÇA": [0, 1]}) 
     add("8ª Fase", "SANIS-T", "Sanidade Suína",
         54, {"TERÇA": [2, 3]})
     add("8ª Fase", "BOVILE", "Bovinocultura de Leite",
