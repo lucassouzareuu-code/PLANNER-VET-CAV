@@ -391,7 +391,7 @@ def build_initial_catalog() -> List[Course]:
         54, {"SEGUNDA": [0, 1]})
     add("7ª Fase", "TECIR-T", "Técnica Cirúrgica",
         90, {"TERÇA": [0, 1]})
-    add("7ª Fase", "DIAGI-T", "Diagnóstico por Imagem",
+    add("7ª Fase", "DIAG-T", "Diagnóstico por Imagem",
         54, {"QUARTA": [0, 1]})
     add("7ª Fase", "CLIMED-T", "Clínica Médica de Cães e Gatos",
         90, {"QUINTA": [0, 1]})
