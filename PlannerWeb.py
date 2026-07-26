@@ -288,11 +288,11 @@ def build_initial_catalog() -> List[Course]:
     
     # Práticas Semiologia
     add("5ª Fase", "SEMIO-A", "Semiologia (Turma A)",
-        0, {"TERÇA": [3, 4]})
+        0, {"TERÇA": [2, 3]})
     add("5ª Fase", "SEMIO-B", "Semiologia (Turma B)",
-        0, {"QUARTA": [3, 4]})
+        0, {"QUARTA": [2, 3]})
     add("5ª Fase", "SEMIO-C", "Semiologia (Turma C)",
-        0, {"QUINTA": [3, 4]})
+        0, {"QUINTA": [2, 3]})
     add("5ª Fase", "SEMIO-D", "Semiologia (Turma D)",
         0, {"SEXTA": [2, 3]})
     
