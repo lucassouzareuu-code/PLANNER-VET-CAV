@@ -575,13 +575,13 @@ def build_initial_catalog() -> List[Course]:
         0, {"SEXTA": [10, 11]})
     
     # Práticas Fisiopatologia da Reprodução II
-    add("9ª Fase", "FISREP3-A", "Fisiopatologia da Reprodução II (Turma A)",
+    add("9ª Fase", "FRIA2-A", "Fisiopatologia da Reprodução II (Turma A)",
         0, {"QUINTA": [0, 1]})
-    add("9ª Fase", "FISREP3-B", "Fisiopatologia da Reprodução II (Turma B)",
+    add("9ª Fase", "FRIA2-B", "Fisiopatologia da Reprodução II (Turma B)",
         0, {"QUINTA": [2, 3]})
-    add("9ª Fase", "FISREP3-C", "Fisiopatologia da Reprodução II (Turma C)",
+    add("9ª Fase", "FRIA2-C", "Fisiopatologia da Reprodução II (Turma C)",
         0, {"SEXTA": [0, 1]})
-    add("9ª Fase", "FISREP3-D", "Fisiopatologia da Reprodução II (Turma D)",
+    add("9ª Fase", "FRIA2-D", "Fisiopatologia da Reprodução II (Turma D)",
         0, {"SEXTA": [2, 3]})
     
     # Práticas Doenças das Aves
