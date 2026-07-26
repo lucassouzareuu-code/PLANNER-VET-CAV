@@ -525,7 +525,7 @@ def build_initial_catalog() -> List[Course]:
     add("8ª Fase", "INSPET-A", "Inspeção (Turma A)",
         0, {"TERÇA": [9, 10]})
     add("8ª Fase", "INSPET-B", "Inspeção (Turma B)",
-        0, {"TERÇA": [10, 11]})
+        0, {"TERÇA": [11, 12]})
 
     # =====================================================================
     # 9ª FASE - Conforme PDF de Horários (Página 9)
