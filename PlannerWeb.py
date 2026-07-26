@@ -462,9 +462,7 @@ def build_initial_catalog() -> List[Course]:
     # 8ª FASE - Conforme PDF de Horários (Página 8)
     # =====================================================================
     # Teóricas
-    add("8ª Fase", "CLIEQ-T", "Clínica Médica de Equinos",
-        90, {"SEGUNDA": [0, 1]})
-    add("8ª Fase", "PACC-T", "Patologia e Clínica Cirúrgica",
+   add("8ª Fase", "PACC-T", "Patologia e Clínica Cirúrgica",
         108, {"TERÇA": [0, 1]})
     add("8ª Fase", "SANIS-T", "Sanidade Suína",
         54, {"TERÇA": [2, 3]})
@@ -478,6 +476,9 @@ def build_initial_catalog() -> List[Course]:
         72, {"SEXTA": [8, 9, 10, 11]})
     
     # Práticas Clínica Médica de Equinos
+
+    add("8ª Fase", "CLIEQ-T", "Clínica Médica de Equinos Teórica",
+        90, {"TERÇA": [1,2,3 ]})       
     add("8ª Fase", "CLIEQ-A", "Clínica Médica de Equinos (Turma A)",
         0, {"SEGUNDA": [0, 1]})
     add("8ª Fase", "CLIEQ-B", "Clínica Médica de Equinos (Turma B)",
