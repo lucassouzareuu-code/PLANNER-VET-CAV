@@ -52,11 +52,11 @@ def build_initial_catalog() -> List[Course]:
     # 1ª FASE - Conforme PDF de Horários (Página 1)
     # =====================================================================
     # Teóricas
-    add("1ª Fase", "ANA1-TEO", "Anatomia I",
+    add("1ª Fase", "ANA1-T", "Anatomia I",
         90, {"SEGUNDA": [0, 1], "TERÇA": [0, 1]})
-    add("1ª Fase", "HISTG-TEO", "Histologia Geral",
+    add("1ª Fase", "HISTG-T", "Histologia Geral",
         72, {"TERÇA": [2, 3]})
-    add("1ª Fase", "BIOQB-TEO", "Bioquímica de Biomoléculas",
+    add("1ª Fase", "BIOQB-T", "Bioquímica de Biomoléculas",
         72, {"TERÇA": [6, 7]})
     add("1ª Fase", "INTMED", "Introdução à Medicina Veterinária",
         36, {"TERÇA": [2, 3]})  # PDF: TERÇA 09:50-10:40 e 10:40-11:30
@@ -99,17 +99,17 @@ def build_initial_catalog() -> List[Course]:
     # 2ª FASE - Conforme PDF de Horários (Página 2)
     # =====================================================================
     # Teóricas
-    add("2ª Fase", "ANA2-TEO", "Anatomia II",
+    add("2ª Fase", "ANA2-T", "Anatomia II",
         90, {"SEGUNDA": [0, 1]})
-    add("2ª Fase", "HIST2-TEO", "Histologia e Embriologia",
+    add("2ª Fase", "HIST2-T", "Histologia e Embriologia",
         90, {"SEGUNDA": [2, 3], "SEXTA": [0]})
-    add("2ª Fase", "GENET-TEO", "Genética",
+    add("2ª Fase", "GENET-T", "Genética",
         72, {"SÁBADO": [0, 1]})
-    add("2ª Fase", "BIOQM-TEO", "Bioquímica Metabólica",
+    add("2ª Fase", "BIOQM-T", "Bioquímica Metabólica",
         72, {"SÁBADO": [2, 3]})
-    add("2ª Fase", "PARA1-TEO", "Parasitologia I",
+    add("2ª Fase", "PARA1-T", "Parasitologia I",
         72, {"TERÇA": [2, 3], "QUINTA": [2, 3]})
-    add("2ª Fase", "FISI1-TEO", "Fisiologia I",
+    add("2ª Fase", "FISI1-T", "Fisiologia I",
         90, {"SÁBADO": [0, 1, 6, 7]})
     
     # Práticas Anatomia II
@@ -168,17 +168,17 @@ def build_initial_catalog() -> List[Course]:
     # 3ª FASE - Conforme PDF de Horários (Página 3)
     # =====================================================================
     # Teóricas
-    add("3ª Fase", "MICRO-TEO", "Microbiologia Geral",
+    add("3ª Fase", "MICRO-T", "Microbiologia Geral",
         72, {"SEGUNDA": [2, 3], "QUARTA": [6, 7]})
-    add("3ª Fase", "IMUNO-TEO", "Imunologia",
+    add("3ª Fase", "IMUNO-T", "Imunologia",
         54, {"TERÇA": [0, 1]})
-    add("3ª Fase", "FISI2-TEO", "Fisiologia II",
+    add("3ª Fase", "FISI2-T", "Fisiologia II",
         72, {"SEGUNDA": [0, 1]})
-    add("3ª Fase", "PARA2-TEO", "Parasitologia II",
+    add("3ª Fase", "PARA2-T", "Parasitologia II",
         72, {"SEGUNDA": [0, 1]})
-    add("3ª Fase", "FARMA-TEO", "Farmacologia Geral",
+    add("3ª Fase", "FARMA-T", "Farmacologia Geral",
         72, {"SEGUNDA": [6, 7]})
-    add("3ª Fase", "NUTRI-TEO", "Nutrição Animal",
+    add("3ª Fase", "NUTRI-T", "Nutrição Animal",
         54, {"QUARTA": [0, 1]})
     
     # Práticas Microbiologia
@@ -245,7 +245,7 @@ def build_initial_catalog() -> List[Course]:
         72, {"QUINTA": [6, 7]})
     add("4ª Fase", "EPIDE", "Epidemiologia",
         36, {"QUINTA": [0, 1]})
-    add("4ª Fase", "MICROE-TEO", "Microbiologia Especial",
+    add("4ª Fase", "MICROE-T", "Microbiologia Especial",
         90, {"QUINTA": [2, 3]})
     
     # Práticas Microbiologia Especial
@@ -262,14 +262,14 @@ def build_initial_catalog() -> List[Course]:
     # Teóricas - CORRIGIDAS conforme PDF
     add("5ª Fase", "FORRA", "Forragicultura",
         54, {"SEXTA": [0, 1, 2]})
-    add("5ª Fase", "FARMD-TEO", "Farmacodinâmica",
+    add("5ª Fase", "FARMD-T", "Farmacodinâmica",
         72, {"TERÇA": [0, 1]})
-    add("5ª Fase", "PATCLI-TEO", "Patologia Clínica",
+    add("5ª Fase", "PATCLI-T", "Patologia Clínica",
         72, {"TERÇA": [7, 8]})
     # SEMIOLOGIA - CORRIGIDA: Segunda-feira, 3 slots (09:50-11:30)
-    add("5ª Fase", "SEMIO-TEO", "Semiologia",
+    add("5ª Fase", "SEMIO-T, "Semiologia",
         90, {"SEGUNDA": [2, 3, 4]})
-    add("5ª Fase", "PATGER-TEO", "Patologia Geral",
+    add("5ª Fase", "PATG-T", "Patologia Geral",
         90, {"SEGUNDA": [7, 8, 9]})
     add("5ª Fase", "ALIMA", "Alimentos e Alimentação",
         90, {"QUINTA": [7, 8, 9, 10]})
@@ -305,30 +305,30 @@ def build_initial_catalog() -> List[Course]:
         0, {"SEXTA": [7, 8]})
     
     # Práticas Patologia Geral
-    add("5ª Fase", "PATGER-A", "Patologia Geral (Turma A)",
+    add("5ª Fase", "PATG-A", "Patologia Geral (Turma A)",
         0, {"TERÇA": [3, 4]})
-    add("5ª Fase", "PATGER-B", "Patologia Geral (Turma B)",
+    add("5ª Fase", "PATG-B", "Patologia Geral (Turma B)",
         0, {"TERÇA": [9, 10]})
-    add("5ª Fase", "PATGER-C", "Patologia Geral (Turma C)",
+    add("5ª Fase", "PATG-C", "Patologia Geral (Turma C)",
         0, {"QUARTA": [7, 8]})
 
     # =====================================================================
     # 6ª FASE - Conforme PDF de Horários (Página 6)
     # =====================================================================
     # Teóricas
-    add("6ª Fase", "SUINO-TEO", "Suinocultura",
+    add("6ª Fase", "SUINO-T", "Suinocultura",
         54, {"SEGUNDA": [0, 1]})
-    add("6ª Fase", "DOENC-TEO", "Doenças Infecto-Contagiosas",
+    add("6ª Fase", "DOENC-T", "Doenças Infecto-Contagiosas",
         90, {"TERÇA": [0, 1]})
-    add("6ª Fase", "DOENPAR-TEO", "Doenças Parasitárias",
+    add("6ª Fase", "DOENPAR-T", "Doenças Parasitárias",
         72, {"QUARTA": [0, 1]})
-    add("6ª Fase", "CLIRUM-TEO", "Clínica Médica de Ruminantes",
+    add("6ª Fase", "CLIRU-T", "Clínica Médica de Ruminantes",
         90, {"QUINTA": [0, 1]})
-    add("6ª Fase", "PATESP-TEO", "Patologia Especial",
+    add("6ª Fase", "PATE-T", "Patologia Especial",
         90, {"SEXTA": [0, 1]})
     add("6ª Fase", "TERAP", "Terapêutica",
         36, {"SEGUNDA": [2, 3]})
-    add("6ª Fase", "PISCIC-TEO", "Piscicultura",
+    add("6ª Fase", "PISC-T", "Piscicultura",
         36, {"QUARTA": [2, 3]})
     
     # Práticas Suinocultura
@@ -348,58 +348,58 @@ def build_initial_catalog() -> List[Course]:
         0, {"QUINTA": [8, 9]})
     
     # Práticas Doenças Parasitárias
-    add("6ª Fase", "DOENPAR-A", "Doenças Parasitárias (Turma A)",
+    add("6ª Fase", "DOENP-A", "Doenças Parasitárias (Turma A)",
         0, {"TERÇA": [6, 7]})
-    add("6ª Fase", "DOENPAR-B", "Doenças Parasitárias (Turma B)",
+    add("6ª Fase", "DOENP-B", "Doenças Parasitárias (Turma B)",
         0, {"TERÇA": [8, 9]})
-    add("6ª Fase", "DOENPAR-C", "Doenças Parasitárias (Turma C)",
+    add("6ª Fase", "DOENP-C", "Doenças Parasitárias (Turma C)",
         0, {"TERÇA": [10, 11]})
-    add("6ª Fase", "DOENPAR-D", "Doenças Parasitárias (Turma D)",
+    add("6ª Fase", "DOENP-D", "Doenças Parasitárias (Turma D)",
         0, {"QUARTA": [6, 7]})
     
     # Práticas Clínica Médica de Ruminantes
-    add("6ª Fase", "CLIRUM-A", "Clínica Médica de Ruminantes (Turma A)",
+    add("6ª Fase", "CLIRU-A", "Clínica Médica de Ruminantes (Turma A)",
         0, {"SEGUNDA": [6, 7]})
-    add("6ª Fase", "CLIRUM-B", "Clínica Médica de Ruminantes (Turma B)",
+    add("6ª Fase", "CLIRU-B", "Clínica Médica de Ruminantes (Turma B)",
         0, {"QUINTA": [8, 9]})
-    add("6ª Fase", "CLIRUM-C", "Clínica Médica de Ruminantes (Turma C)",
+    add("6ª Fase", "CLIRU-C", "Clínica Médica de Ruminantes (Turma C)",
         0, {"TERÇA": [8, 9]})
-    add("6ª Fase", "CLIRUM-D", "Clínica Médica de Ruminantes (Turma D)",
+    add("6ª Fase", "CLIRU-D", "Clínica Médica de Ruminantes (Turma D)",
         0, {"QUARTA": [6, 7]})
     
     # Práticas Patologia Especial
-    add("6ª Fase", "PATESP-A", "Patologia Especial (Turma A)",
+    add("6ª Fase", "PATE-A", "Patologia Especial (Turma A)",
         0, {"QUINTA": [8, 9]})
-    add("6ª Fase", "PATESP-B", "Patologia Especial (Turma B)",
+    add("6ª Fase", "PATE-B", "Patologia Especial (Turma B)",
         0, {"SEXTA": [6, 7]})
-    add("6ª Fase", "PATESP-C", "Patologia Especial (Turma C)",
+    add("6ª Fase", "PATE-C", "Patologia Especial (Turma C)",
         0, {"SEXTA": [8, 9]})
     
     # Práticas Piscicultura
-    add("6ª Fase", "PISCIC-A", "Piscicultura (Turma A)",
+    add("6ª Fase", "PISC-A", "Piscicultura (Turma A)",
         0, {"QUARTA": [2, 3]})
-    add("6ª Fase", "PISCIC-B", "Piscicultura (Turma B)",
+    add("6ª Fase", "PISC-B", "Piscicultura (Turma B)",
         0, {"QUARTA": [4]})
-    add("6ª Fase", "PISCIC-C", "Piscicultura (Turma C)",
+    add("6ª Fase", "PISC-C", "Piscicultura (Turma C)",
         0, {"QUARTA": [4]})
 
     # =====================================================================
     # 7ª FASE - Conforme PDF de Horários (Página 7)
     # =====================================================================
     # Teóricas
-    add("7ª Fase", "ANEST-TEO", "Anestesiologia",
+    add("7ª Fase", "ANEST-T", "Anestesiologia",
         54, {"SEGUNDA": [0, 1]})
-    add("7ª Fase", "TECIR-TEO", "Técnica Cirúrgica",
+    add("7ª Fase", "TECIR-T", "Técnica Cirúrgica",
         90, {"TERÇA": [0, 1]})
-    add("7ª Fase", "DIAGIM-TEO", "Diagnóstico por Imagem",
+    add("7ª Fase", "DIAG-T", "Diagnóstico por Imagem",
         54, {"QUARTA": [0, 1]})
-    add("7ª Fase", "CLIMED-TEO", "Clínica Médica de Cães e Gatos",
+    add("7ª Fase", "CLIMED-T", "Clínica Médica de Cães e Gatos",
         90, {"QUINTA": [0, 1]})
     add("7ª Fase", "BOVIC", "Bovinocultura de Corte",
         54, {"SEXTA": [0, 1]})
-    add("7ª Fase", "FISREP-TEO", "Fisiopatologia da Reprodução",
+    add("7ª Fase", "FRIA1-T", "Fisiopatologia da Reprodução",
         90, {"SEGUNDA": [2, 3], "QUARTA": [6, 7]})
-    add("7ª Fase", "SAUDPUB-TEO", "Saúde Pública Veterinária",
+    add("7ª Fase", "SAUD-T", "Saúde Pública Veterinária",
         54, {"SEXTA": [6, 7]})
     
     # Práticas Anestesiologia
@@ -423,13 +423,13 @@ def build_initial_catalog() -> List[Course]:
         0, {"QUARTA": [2, 3]})
     
     # Práticas Diagnóstico por Imagem
-    add("7ª Fase", "DIAGIM-A", "Diagnóstico por Imagem (Turma A)",
+    add("7ª Fase", "DIAG-A", "Diagnóstico por Imagem (Turma A)",
         0, {"TERÇA": [2, 3]})
-    add("7ª Fase", "DIAGIM-B", "Diagnóstico por Imagem (Turma B)",
+    add("7ª Fase", "DIAG-B", "Diagnóstico por Imagem (Turma B)",
         0, {"QUARTA": [2, 3]})
-    add("7ª Fase", "DIAGIM-C", "Diagnóstico por Imagem (Turma C)",
+    add("7ª Fase", "DIAG-C", "Diagnóstico por Imagem (Turma C)",
         0, {"QUINTA": [6, 7]})
-    add("7ª Fase", "DIAGIM-D", "Diagnóstico por Imagem (Turma D)",
+    add("7ª Fase", "DIAG-D", "Diagnóstico por Imagem (Turma D)",
         0, {"SEXTA": [8, 9]})
     
     # Práticas Clínica Médica de Cães e Gatos
@@ -443,38 +443,38 @@ def build_initial_catalog() -> List[Course]:
         0, {"QUINTA": [6, 7]})
     
     # Práticas Fisiopatologia da Reprodução
-    add("7ª Fase", "FISREP-A", "Fisiopatologia da Reprodução (Turma A)",
+    add("7ª Fase", "FRIA1-A", "Fisiopatologia da Reprodução (Turma A)",
         0, {"TERÇA": [6, 7]})
-    add("7ª Fase", "FISREP-B", "Fisiopatologia da Reprodução (Turma B)",
+    add("7ª Fase", "FRIA1-B", "Fisiopatologia da Reprodução (Turma B)",
         0, {"QUARTA": [8, 9]})
-    add("7ª Fase", "FISREP-C", "Fisiopatologia da Reprodução (Turma C)",
+    add("7ª Fase", "FRIA1-C", "Fisiopatologia da Reprodução (Turma C)",
         0, {"QUINTA": [6, 7]})
-    add("7ª Fase", "FISREP-D", "Fisiopatologia da Reprodução (Turma D)",
+    add("7ª Fase", "FRIA1-D", "Fisiopatologia da Reprodução (Turma D)",
         0, {"QUARTA": [8, 9]})
     
     # Práticas Saúde Pública
-    add("7ª Fase", "SAUDPUB-A", "Saúde Pública (Turma A)",
+    add("7ª Fase", "SAUD-A", "Saúde Pública (Turma A)",
         0, {"SEXTA": [8, 9]})
-    add("7ª Fase", "SAUDPUB-B", "Saúde Pública (Turma B)",
+    add("7ª Fase", "SAUD-B", "Saúde Pública (Turma B)",
         0, {"SEXTA": [8, 9]})
 
     # =====================================================================
     # 8ª FASE - Conforme PDF de Horários (Página 8)
     # =====================================================================
     # Teóricas
-    add("8ª Fase", "CLIEQ-TEO", "Clínica Médica de Equinos",
+    add("8ª Fase", "CLIEQ-T", "Clínica Médica de Equinos",
         90, {"SEGUNDA": [0, 1]})
-    add("8ª Fase", "PACC-TEO", "Patologia e Clínica Cirúrgica",
+    add("8ª Fase", "PACC-T", "Patologia e Clínica Cirúrgica",
         108, {"TERÇA": [0, 1]})
-    add("8ª Fase", "SANISUI-TEO", "Sanidade Suína",
+    add("8ª Fase", "SANIS-T", "Sanidade Suína",
         54, {"TERÇA": [2, 3]})
     add("8ª Fase", "BOVILE", "Bovinocultura de Leite",
         54, {"QUARTA": [0, 1]})
-    add("8ª Fase", "AVICUL-TEO", "Avicultura",
+    add("8ª Fase", "AVICUL-T", "Avicultura",
         54, {"QUINTA": [0, 1]})
     add("8ª Fase", "OVINOC", "Ovinocultura",
         36, {"SEXTA": [0, 1]})
-    add("8ª Fase", "INSPET-TEO", "Inspeção e Tecnologia",
+    add("8ª Fase", "INSPET-T", "Inspeção e Tecnologia",
         72, {"SEXTA": [8, 9, 10, 11]})
     
     # Práticas Clínica Médica de Equinos
@@ -498,27 +498,27 @@ def build_initial_catalog() -> List[Course]:
         0, {"QUINTA": [0, 1]})
     
     # Práticas Sanidade Suína
-    add("8ª Fase", "SANISUI-A", "Sanidade Suína (Turma A)",
+    add("8ª Fase", "SANI-A", "Sanidade Suína (Turma A)",
         0, {"TERÇA": [6, 7]})
-    add("8ª Fase", "SANISUI-B", "Sanidade Suína (Turma B)",
+    add("8ª Fase", "SANI-B", "Sanidade Suína (Turma B)",
         0, {"QUARTA": [6, 7]})
-    add("8ª Fase", "SANISUI-C", "Sanidade Suína (Turma C)",
+    add("8ª Fase", "SANI-C", "Sanidade Suína (Turma C)",
         0, {"QUINTA": [6, 7]})
-    add("8ª Fase", "SANISUI-D", "Sanidade Suína (Turma D)",
+    add("8ª Fase", "SANI-D", "Sanidade Suína (Turma D)",
         0, {"QUARTA": [8, 9]})
     
     # Práticas Avicultura
-    add("8ª Fase", "AVICUL-A", "Avicultura (Turma A)",
+    add("8ª Fase", "AVIC-A", "Avicultura (Turma A)",
         0, {"QUINTA": [6, 7]})
-    add("8ª Fase", "AVICUL-B", "Avicultura (Turma B)",
+    add("8ª Fase", "AVIC-B", "Avicultura (Turma B)",
         0, {"QUINTA": [8, 9]})
-    add("8ª Fase", "AVICUL-C", "Avicultura (Turma C)",
+    add("8ª Fase", "AVIC-C", "Avicultura (Turma C)",
         0, {"SEXTA": [8, 9]})
     
     # Práticas Ovinocultura
-    add("8ª Fase", "OVINOC-A", "Ovinocultura (Turma A)",
+    add("8ª Fase", "OVINO-A", "Ovinocultura (Turma A)",
         0, {"SEXTA": [6, 7]})
-    add("8ª Fase", "OVINOC-B", "Ovinocultura (Turma B)",
+    add("8ª Fase", "OVINO-B", "Ovinocultura (Turma B)",
         0, {"SEXTA": [8, 9]})
     
     # Práticas Inspeção
@@ -531,7 +531,7 @@ def build_initial_catalog() -> List[Course]:
     # 9ª FASE - Conforme PDF de Horários (Página 9)
     # =====================================================================
     # Teóricas
-    add("9ª Fase", "OBSTE-TEO", "Obstetrícia",
+    add("9ª Fase", "OBSTE-T", "Obstetrícia",
         72, {"SEGUNDA": [0, 1]})
     add("9ª Fase", "CLIMED2-TEO", "Clínica Médica de Cães e Gatos II",
         90, {"TERÇA": [0, 1]})
@@ -541,7 +541,7 @@ def build_initial_catalog() -> List[Course]:
         72, {"QUINTA": [0, 1]})
     add("9ª Fase", "DAVES-TEO", "Doenças das Aves",
         72, {"QUINTA": [2, 3]})
-    add("9ª Fase", "TOXICO", "Toxicologia e Plantas Tóxicas",
+    add("9ª Fase", "TOXIC", "Toxicologia e Plantas Tóxicas",
         36, {"TERÇA": [8, 9]})
     
     # Práticas Obstetrícia
@@ -575,15 +575,15 @@ def build_initial_catalog() -> List[Course]:
         0, {"SEXTA": [10, 11]})
     
     # Práticas Fisiopatologia da Reprodução II
-    add("9ª Fase", "FISREP3-A", "Fisiopatologia da Reprodução II (Turma A)",
+    add("9ª Fase", "FRIA2-A", "Fisiopatologia da Reprodução II (Turma A)",
         0, {"QUINTA": [0, 1]})
-    add("9ª Fase", "FISREP3-B", "Fisiopatologia da Reprodução II (Turma B)",
+    add("9ª Fase", "FRIA2-B", "Fisiopatologia da Reprodução II (Turma B)",
         0, {"QUINTA": [2, 3]})
-    add("9ª Fase", "FISREP3-C", "Fisiopatologia da Reprodução II (Turma C)",
+    add("9ª Fase", "FRIA2-C", "Fisiopatologia da Reprodução II (Turma C)",
         0, {"SEXTA": [0, 1]})
-    add("9ª Fase", "FISREP3-D", "Fisiopatologia da Reprodução II (Turma D)",
+    add("9ª Fase", "FRIA2-D", "Fisiopatologia da Reprodução II (Turma D)",
         0, {"SEXTA": [2, 3]})
-    add("9ª Fase", "FISREP3-T", "Fisiopatologia da Reprodução II Teórica",
+    add("9ª Fase", "FRIA2-T", "Fisiopatologia da Reprodução II Teórica",
         0, {"QUARTA": [10, 11]})
 
     # Práticas Doenças das Aves
