@@ -475,7 +475,7 @@ def build_initial_catalog() -> List[Course]:
     add("8ª Fase", "OVINOC", "Ovinocultura",
         36, {"SEXTA": [0, 1]})
     add("8ª Fase", "INSPET-T", "Inspeção e Tecnologia",
-        72, {"SEXTA": [8, 9, 10, 11]})
+        72, {"SEGUNDA": [10, 11]})
     
     # Práticas Clínica Médica de Equinos
     add("8ª Fase", "CLIEQ-A", "Clínica Médica de Equinos (Turma A)",
@@ -523,9 +523,9 @@ def build_initial_catalog() -> List[Course]:
     
     # Práticas Inspeção
     add("8ª Fase", "INSPET-A", "Inspeção (Turma A)",
-        0, {"SEXTA": [8, 9]})
+        0, {"TERÇA": [8, 9]})
     add("8ª Fase", "INSPET-B", "Inspeção (Turma B)",
-        0, {"SEXTA": [10, 11]})
+        0, {"TERÇA": [10, 11]})
 
     # =====================================================================
     # 9ª FASE - Conforme PDF de Horários (Página 9)
