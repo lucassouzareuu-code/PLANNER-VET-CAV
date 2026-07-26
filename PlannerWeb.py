@@ -270,7 +270,7 @@ def build_initial_catalog() -> List[Course]:
     add("5ª Fase", "SEMIO-T", "Semiologia",
         90, {"SEGUNDA": [2, 3, 4]})
     add("5ª Fase", "PATG-T", "Patologia Geral",
-        90, {"SEGUNDA": [7, 8, 9]})
+        90, {"SEGUNDA": [6,7,8]})
     add("5ª Fase", "ALIMA", "Alimentos e Alimentação",
         90, {"QUINTA": [7, 8, 9, 10]})
     add("5ª Fase", "COMEXT", "Comunicação e Extensão",
