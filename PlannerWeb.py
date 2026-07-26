@@ -268,7 +268,7 @@ def build_initial_catalog() -> List[Course]:
         72, {"TERÇA": [7, 8]})
     # SEMIOLOGIA - CORRIGIDA: Segunda-feira, 3 slots (09:50-11:30)
     add("5ª Fase", "SEMIO-T", "Semiologia",
-        90, {"SEGUNDA": [2, 3, 4]})
+        90, {"SEGUNDA": [1,2,3]})
     add("5ª Fase", "PATG-T", "Patologia Geral",
         90, {"SEGUNDA": [7, 8, 9]})
     add("5ª Fase", "ALIMA", "Alimentos e Alimentação",
@@ -538,7 +538,7 @@ def build_initial_catalog() -> List[Course]:
     add("9ª Fase", "INSPE-T", "Inspeção II",
         90, {"QUARTA": [0, 1]})
     add("9ª Fase", "FRIA2-T", "Fisiopatologia da Reprodução II",
-        72, {"QUARTA": [11,12]})
+        72, {"QUARTA": [10,11]})
     add("9ª Fase", "DAVES-T", "Doenças das Aves",
         72, {"QUINTA": [2, 3]})
     add("9ª Fase", "TOXICO", "Toxicologia e Plantas Tóxicas",
