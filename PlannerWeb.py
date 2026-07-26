@@ -495,7 +495,7 @@ def build_initial_catalog() -> List[Course]:
     add("8ª Fase", "PACC-C", "Patologia e Clínica Cirúrgica (Turma C)",
         0, {"QUINTA": [2, 3,4,5]})
     add("8ª Fase", "PACC-D", "Patologia e Clínica Cirúrgica (Turma D)",
-        0, {"QUINTA": [0, 1,2,3]})
+        0, {"SEXTA": [0, 1,2,3]})
     
     # Práticas Sanidade Suína
     add("8ª Fase", "SANI-A", "Sanidade Suína (Turma A)",
