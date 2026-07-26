@@ -583,7 +583,9 @@ def build_initial_catalog() -> List[Course]:
         0, {"SEXTA": [0, 1]})
     add("9ª Fase", "FISREP3-D", "Fisiopatologia da Reprodução II (Turma D)",
         0, {"SEXTA": [2, 3]})
-    
+    add("9ª Fase", "FISREP3-T", "Fisiopatologia da Reprodução II Teórica",
+        0, {"QUARTA": [10, 11]})
+
     # Práticas Doenças das Aves
     add("9ª Fase", "DAVES-A", "Doenças das Aves (Turma A)",
         0, {"QUINTA": [6, 7]})
@@ -953,4 +955,3 @@ with col_right:
     </div>
     """
     st.markdown(table_html, unsafe_allow_html=True)
-    
