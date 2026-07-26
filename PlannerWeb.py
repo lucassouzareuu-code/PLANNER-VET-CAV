@@ -267,7 +267,7 @@ def build_initial_catalog() -> List[Course]:
     add("5ª Fase", "PATCLI-T", "Patologia Clínica",
         72, {"TERÇA": [7, 8]})
     # SEMIOLOGIA - CORRIGIDA: Segunda-feira, 3 slots (09:50-11:30)
-    add("5ª Fase", "SEMIO-T, "Semiologia",
+    add("5ª Fase", "SEMIO-T", "Semiologia",
         90, {"SEGUNDA": [2, 3, 4]})
     add("5ª Fase", "PATG-T", "Patologia Geral",
         90, {"SEGUNDA": [7, 8, 9]})
