@@ -390,7 +390,7 @@ def build_initial_catalog() -> List[Course]:
     add("7ª Fase", "ANEST-T", "Anestesiologia",
         54, {"SEGUNDA": [0, 1]})
     add("7ª Fase", "TECIR-T", "Técnica Cirúrgica",
-        90, {"SEGUNDA": [9,10]})
+        90, {"SEGUNDA": [8,9]})
     add("7ª Fase", "DIAG-T", "Diagnóstico por Imagem",
         54, {"QUARTA": [0, 1]})
     add("7ª Fase", "CLIMED-T", "Clínica Médica de Cães e Gatos",
@@ -469,7 +469,7 @@ def build_initial_catalog() -> List[Course]:
     add("8ª Fase", "SANI-T", "Sanidade Suína",
         54, {"TERÇA": [2, 3]})
     add("8ª Fase", "BOVILE", "Bovinocultura de Leite",
-        54, {"SEGUNDA": [7, 8, 9]})
+        54, {"SEGUNDA": [6,7,8]})
     add("8ª Fase", "AVIC-T", "Avicultura",
         54, {"QUINTA": [0, 1]})
     add("8ª Fase", "OVINOC", "Ovinocultura",
