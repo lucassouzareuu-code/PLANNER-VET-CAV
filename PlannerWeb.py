@@ -404,13 +404,13 @@ def build_initial_catalog() -> List[Course]:
     
     # Práticas Anestesiologia
     add("7ª Fase", "ANEST-A", "Anestesiologia (Turma A)",
-        0, {"SEGUNDA": [6, 7]})
+        0, {"SEGUNDA": [6,7]})
     add("7ª Fase", "ANEST-B", "Anestesiologia (Turma B)",
         0, {"TERÇA": [0, 1]})
     add("7ª Fase", "ANEST-C", "Anestesiologia (Turma C)",
-        0, {"QUARTA": [6, 7]})
+        0, {"TERÇA": [6,7]})
     add("7ª Fase", "ANEST-D", "Anestesiologia (Turma D)",
-        0, {"SEXTA": [8, 9]})
+        0, {"QUARTA": [8, 9]})
     
     # Práticas Técnica Cirúrgica
     add("7ª Fase", "TECIR-A", "Técnica Cirúrgica (Turma A)",
