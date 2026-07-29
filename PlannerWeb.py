@@ -481,11 +481,11 @@ def build_initial_catalog() -> List[Course]:
     add("8ª Fase", "CLIEQ-A", "Clínica Médica de Equinos (Turma A)",
         0, {"SEGUNDA": [0, 1]})
     add("8ª Fase", "CLIEQ-B", "Clínica Médica de Equinos (Turma B)",
-        0, {"SEGUNDA": [2, 3]})
+        0, {"QUARTA": [2, 3]})
     add("8ª Fase", "CLIEQ-C", "Clínica Médica de Equinos (Turma C)",
-        0, {"SEXTA": [0, 1]})
+        0, {"QUARTA": [8,9]})
     add("8ª Fase", "CLIEQ-D", "Clínica Médica de Equinos (Turma D)",
-        0, {"SEXTA": [2, 3]})
+        0, {"SEXTA": [0,1]})
     
     # Práticas Patologia e Clínica Cirúrgica
     add("8ª Fase", "PACC-A", "Patologia e Clínica Cirúrgica (Turma A)",
