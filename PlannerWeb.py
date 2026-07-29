@@ -414,13 +414,13 @@ def build_initial_catalog() -> List[Course]:
     
     # Práticas Técnica Cirúrgica
     add("7ª Fase", "TECIR-A", "Técnica Cirúrgica (Turma A)",
-        0, {"TERÇA": [0, 1]})
+        0, {"TERÇA": [0, 1,2]})
     add("7ª Fase", "TECIR-B", "Técnica Cirúrgica (Turma B)",
-        0, {"QUARTA": [2, 3]})
+        0, {"TERÇA": [3,4,5]})
     add("7ª Fase", "TECIR-C", "Técnica Cirúrgica (Turma C)",
-        0, {"TERÇA": [2, 3]})
+        0, {"QUARTA": [0,1,2]})
     add("7ª Fase", "TECIR-D", "Técnica Cirúrgica (Turma D)",
-        0, {"QUARTA": [2, 3]})
+        0, {"QUARTA": [3,4,5]})
     
     # Práticas Diagnóstico por Imagem
     add("7ª Fase", "DIAG-A", "Diagnóstico por Imagem (Turma A)",
